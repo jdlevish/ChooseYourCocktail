@@ -1,50 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 //Boostrap
-import { BrowserRouter as Router, Link, useHistory } from 'react-router-dom';
-import { Navbar, Nav, Image, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import { ReactComponent as Logo } from '../images/short cocktail.svg'
+import { Container, Navbar, Nav, Image, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import $ from "jquery";
 
+export default function CocktailList(props) {
+    // const [recipe, setRecipe] = useState("");
+    console.log(props.drinks)
+
+    // function getRecipe(id) {
+
+    //     $.ajax({
+    //         url: "/api/cocktailRecipe/" + id,
+    //         method: "GET"
 
 
+    //     }).then((res) => {
+    //         console.log(res);
 
-// component to allow user to chose the base liquor of the cocktail the user is looking for 
-class cocktaillist extends Component {
-    constructor(props) {
-        super(props);
+    //         setRecipe(res);
+    //         // console.log(res)
+    //     });
 
+    // }
+    return (
+        <div>
+            <Container>
+                <ul>
+                    {
+                        props.drinks.map((result) => (
+                            <div>
+                                <h3>{result.strDrink}</h3>
+                                <img src={result.strDrinkThumb} className="thumb" />
+                            </div>
 
-    }
-
-
-
-    render() {
-        // handle click function that captures the name of liquor on button and sends it as parameter to api for call to cocktail database
-
-        function handleClick(e) {
-
-            var liquor = e.target.childNodes[0].data;
-            $.ajax({
-                url: "/api/cocktailAPI/" + liquor,
-                method: "GET",
-
-            }).then((res) => {
-                console.log(res);
-            });
-        }
+                        ))
+                    }
+                </ul>
 
 
-        return (
-            <div>
-                <container>
+            </Container>
 
-
-                </container>
-
-            </div>
-        );
-    }
-
+        </div >
+    );
 }
 
-export default cocktaillist;

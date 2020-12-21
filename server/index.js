@@ -20,6 +20,23 @@ app.get("/api/cocktailAPI/:liqour", function (req, res) {
         })
 
 })
+app.get("/api/cocktailRecipe/:id", function (req, res) {
+    var id = req.params.id
+
+
+    axios({
+        "method": "GET",
+        "url": `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=` + id,
+
+
+    })
+        .then((api) => {
+
+            console.log(api.data)
+            res.send(api.data)
+        })
+
+})
 
 
 app.listen(8080, () => console.log(' listening on port 8080!'));
