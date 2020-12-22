@@ -1,44 +1,51 @@
 import React, { Component, useState } from 'react';
 //Boostrap
-import { Container, Navbar, Nav, Image, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Container, Card, Row, Navbar, Nav, Image, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import $ from "jquery";
 
 export default function CocktailList(props) {
-    // const [recipe, setRecipe] = useState("");
+    const [recipe, setRecipe] = useState("");
     console.log(props.drinks)
-
-    // function getRecipe(id) {
-
-    //     $.ajax({
-    //         url: "/api/cocktailRecipe/" + id,
-    //         method: "GET"
+    async function getRecipe(id) {
 
 
-    //     }).then((res) => {
-    //         console.log(res);
+        try {
+            const res = await $.ajax({
+                url: "/api/cocktailRecipe/" + id,
+                method: "GET"
 
-    //         setRecipe(res);
-    //         // console.log(res)
-    //     });
 
-    // }
+            })
+            setRecipe(res)
+        } catch (e) { console.log(e) }
+
+    }
+
+
+
+
     return (
         <div>
-            <Container>
-                <ul>
-                    {
-                        props.drinks.map((result) => (
-                            <div>
-                                <h3>{result.strDrink}</h3>
-                                <img src={result.strDrinkThumb} className="thumb" />
-                            </div>
-
-                        ))
-                    }
-                </ul>
 
 
-            </Container>
+            <ul>
+
+                {
+                    props.drinks.map((result) => (
+                        <Card id={result.idDrink} style={{ width: '18rem' }} className="float-left col-md-6 m-3">
+                            <Card.Img variant="top" className="mt-1" src={result.strDrinkThumb} />
+                            <Card.Body>
+                                <Card.Title>{result.strDrink}</Card.Title>
+
+                                <Button variant="secondary" >Click here for full recipe</Button>
+                            </Card.Body>
+                        </Card>
+
+
+                    ))
+                }
+
+            </ul>
 
         </div >
     );

@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 //Boostrap
-import { Container, Navbar, Nav, Image, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Container, Row, Navbar, Nav, Image, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import $ from "jquery";
 import CocktailList from './cocktaillist'
 
@@ -39,23 +39,34 @@ export default function LiquorChoice(props) {
     return (
         <div>
             <Container>
-                <button onClick={handleClick}>Vodka</button>
-                <button onClick={handleClick}>Gin</button>
-                <button onClick={handleClick}>Rum</button>
-                <button onClick={handleClick}>Whiskey</button>
-                <button onClick={handleClick}>Scotch</button>
-                <button onClick={handleClick}>Bourbon</button>
-                <button onClick={handleClick}>Tequila</button>
-                <button onClick={handleClick}>Mezcal</button>
-                <button onClick={handleClick}>Sherry</button>
-                <button onClick={handleClick}>Absinthe</button>
-                <button onClick={handleClick}>Irish Cream</button>
-                <button onClick={handleClick}>Kahlua</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Vodka</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Gin</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Rum</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Whiskey</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Scotch</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Bourbon</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Tequila</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Mezcal</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Sherry</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Absinthe</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Irish Cream</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>Kahlua</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>campari</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>aperol</button>
+                <button className="btn btn-outline-danger" onClick={handleClick}>brandy</button>
+
+
+
 
 
             </Container>
             <Container>
-                <CocktailList drinks={drinks} />
+                <Row>
+
+                    <CocktailList drinks={drinks} />
+
+                </Row>
+
             </Container>
 
         </div>
