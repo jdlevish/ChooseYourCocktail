@@ -33,7 +33,7 @@ app.get("/api/cocktailRecipe/:id", function (req, res) {
         .then((api) => {
 
             console.log(api.data)
-            res.send(api.data)
+            res.send(api.data.drinks[0])
         })
 
 })
