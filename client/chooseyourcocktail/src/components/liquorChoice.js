@@ -10,10 +10,14 @@ import CocktailList from './cocktaillist'
 // component to allow user to chose the base liquor of the cocktail the user is looking for 
 export default function LiquorChoice(props) {
     const [drinks, setDrinks] = useState([]);
+    const [liquorValue, setLiquorValue] = useState("");
+
+
+
 
     async function handleClick(e) {
-
-        var liquor = e.target.childNodes[0].data;
+        // e.preventDefault();
+        var liquor = liquorValue;
         try {
             const res = await $.ajax({
                 url: "/api/cocktailAPI/" + liquor,
@@ -21,6 +25,7 @@ export default function LiquorChoice(props) {
 
             })
             setDrinks(res)
+            // console.log(drinks)
         } catch (e) { console.log(e) }
 
     }
@@ -39,23 +44,11 @@ export default function LiquorChoice(props) {
     return (
         <div>
             <Container>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Vodka</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Gin</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Rum</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Whiskey</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Scotch</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Bourbon</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Tequila</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Mezcal</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Sherry</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Absinthe</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Irish Cream</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Kahlua</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>campari</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>aperol</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>brandy</button>
 
-
+                <form>
+                    <input type="text" name="liquor" value={liquorValue} onChange={(e) => { setLiquorValue(e.target.value) }} />
+                    <Button className="btn btn-danger" onClick={() => { handleClick(liquorValue.toLowerCase()) }}>Search</Button>
+                </form>
 
 
 
