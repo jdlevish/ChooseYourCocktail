@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const path = require('path');
 const app = express();
-// route for liquor chosen by user, used to bring back list of cocktails from the cocktail database
+
 app.get("/api/cocktailAPI/:liqour", function (req, res) {
     var liquor = req.params.liqour
 
