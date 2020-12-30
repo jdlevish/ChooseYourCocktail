@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 //Boostrap
-import { Container, Card, Modal, Row, Navbar, Nav, Image, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Container, Card, Modal, Button } from 'react-bootstrap';
 import $ from "jquery";
 import DrinkRecipe from "./DrinkRecipe"
 
@@ -25,13 +25,13 @@ export default function CocktailList(props) {
 
     console.log(props.drinks)
 
-    // recipe call
+    // recipe call this function takes the id of the cocktail the user selected and sends it to the backend to search database for full recipe
     async function getRecipe(id) {
 
 
         try {
             const res = await $.ajax({
-                url: "/api/cocktailRecipe/" + id,
+                url: "/api/cocktailAPI/recipe/" + id,
                 method: "GET"
 
 
@@ -49,7 +49,7 @@ export default function CocktailList(props) {
 
 
 
-    if (props.drinks.length === 0) {
+    if (props.drinks.length === 0 || props.drinks == null) {
         return (
 
             < div >
