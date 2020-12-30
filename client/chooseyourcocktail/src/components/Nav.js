@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //Boostrap
 import { BrowserRouter as Router, Link, useHistory } from 'react-router-dom';
-import { Navbar, Nav, Image, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { ReactComponent as Logo } from '../images/cycLogo.svg'
 
 
@@ -21,7 +21,8 @@ class NavBarHome extends Component {
         return (
             <div>
                 <Navbar bg="light" expand="lg" >
-                    <Navbar.Brand href="#home" ><Logo className="svgLogo"></Logo><h1 className="navHeader float-right pt-4">Choose Your Cocktail</h1></Navbar.Brand>
+                    <Navbar.Brand href="#home" ><Logo className="svgLogo"></Logo><h1 className="navHeader float-right pt-4
+                    ">Choose Your Cocktail</h1></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto color-navbar">
