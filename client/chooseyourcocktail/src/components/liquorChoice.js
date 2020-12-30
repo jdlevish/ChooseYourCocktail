@@ -10,18 +10,44 @@ import CocktailList from './cocktaillist'
 // component to allow user to chose the base liquor of the cocktail the user is looking for 
 export default function LiquorChoice(props) {
     const [drinks, setDrinks] = useState([]);
+    const [liquorValue, setLiquorValue] = useState("");
 
-    async function handleClick(e) {
-
-        var liquor = e.target.childNodes[0].data;
+    // this function makes an api call to the express server to search cocktaildb api by liquor type
+    async function searchLiquor(liquorValue) {
+        console.log(liquorValue)
         try {
             const res = await $.ajax({
-                url: "/api/cocktailAPI/" + liquor,
+                url: "/api/cocktailAPI/" + liquorValue.toLowerCase(),
                 method: "GET"
 
             })
-            setDrinks(res)
+            // console.log(res)
+            await setDrinks(res)
+            console.log(drinks)
         } catch (e) { console.log(e) }
+
+
+    }
+
+    // this function checks the keys pressed when input field is in focus and calls searchLiquor function when enter is pressed
+    function handleKeyPress(e, liquorValue) {
+        console.log(e.key)
+        // console.log(liquorValue)
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            console.log(liquorValue)
+            liquorValue = liquorValue
+            searchLiquor(liquorValue)
+        }
+        else {
+            return
+        }
+    }
+    // this function calls searchLiquor function when search button is clicked
+    function handleSubmit(e, liquorValue) {
+        e.preventDefault()
+        liquorValue = liquorValue
+        searchLiquor(liquorValue);
 
     }
 
@@ -39,23 +65,11 @@ export default function LiquorChoice(props) {
     return (
         <div>
             <Container>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Vodka</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Gin</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Rum</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Whiskey</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Scotch</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Bourbon</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Tequila</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Mezcal</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Sherry</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Absinthe</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Irish Cream</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>Kahlua</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>campari</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>aperol</button>
-                <button className="btn btn-outline-danger" onClick={handleClick}>brandy</button>
 
-
+                <form >
+                    <input type="text" name="liquor" value={liquorValue} onKeyPress={(e) => handleKeyPress(e, liquorValue)} onChange={(e) => { setLiquorValue(e.target.value) }} />
+                    <Button className="btn btn-danger" onClick={(e) => { handleSubmit(e, liquorValue) }}>Search</Button>
+                </form>
 
 
 

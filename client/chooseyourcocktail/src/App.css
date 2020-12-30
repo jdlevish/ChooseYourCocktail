@@ -34,9 +34,11 @@
 .btn-danger{
   background-color:#AC1010 ;
 }
-.card-title{
-  font-size:2.2vh;
+.card-Title{
+  height: 10vh;
+  font-size: 1.3rem;
 }
+
 
 
 
