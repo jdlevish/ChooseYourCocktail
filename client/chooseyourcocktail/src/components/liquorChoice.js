@@ -11,7 +11,7 @@ import CocktailList from './cocktaillist'
 export default function LiquorChoice(props) {
     const [drinks, setDrinks] = useState([]);
     const [liquorValue, setLiquorValue] = useState("");
-
+    const [searchType, setSearchType] = useState("");
     // this function makes an api call to the express server to search cocktaildb api by liquor type
     async function searchLiquor(liquorValue) {
         console.log(liquorValue)
@@ -68,6 +68,12 @@ export default function LiquorChoice(props) {
 
                 <form >
                     <input type="text" name="liquor" value={liquorValue} onKeyPress={(e) => handleKeyPress(e, liquorValue)} onChange={(e) => { setLiquorValue(e.target.value) }} />
+                    <select value={searchType} onChange={(e) => { setSearchType(e.target.value) }}>
+                        <option value="Liquor">Liquor</option>
+                        <option value="Ingredient">Ingredient</option>
+                        <option value="Cocktail">Cocktail</option>
+                        <option value="Glass Type">Glass Type</option>
+                    </select>
                     <Button className="btn btn-danger" onClick={(e) => { handleSubmit(e, liquorValue) }}>Search</Button>
                 </form>
 
