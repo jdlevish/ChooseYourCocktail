@@ -21,7 +21,7 @@ class NavBarHome extends Component {
         return (
             <div>
                 <Navbar bg="light" expand="lg" >
-                    <Navbar.Brand href="#home" ><Logo className="svgLogo"></Logo><h1 className="navHeader float-right pt-4
+                    <Navbar.Brand href="/" ><Logo className="svgLogo"></Logo><h1 className="navHeader float-right pt-4
                     ">Choose Your Cocktail</h1></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -29,7 +29,7 @@ class NavBarHome extends Component {
 
                             <NavDropdown title="Get Started" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Learn the Basics</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Choose your cocktail </NavDropdown.Item>
+                                <NavDropdown.Item href="/choose">Choose your cocktail </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">What's New</NavDropdown.Item>
 
                             </NavDropdown>

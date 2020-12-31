@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
 //components
-import Nav from "../Nav";
-import LiquorChoice from "../liquorChoice";
+import Nav from "../components/Nav";
+import LiquorChoice from "../components/liquorChoice";
 
 
 
-class Home extends React.Component {
+class choose extends React.Component {
     render() {
         return (
             <div>
@@ -17,4 +17,4 @@ class Home extends React.Component {
         );
     }
 }
-export default Home;
+export default choose;
