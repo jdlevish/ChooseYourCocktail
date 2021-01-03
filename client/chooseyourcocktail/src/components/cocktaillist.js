@@ -9,6 +9,7 @@ export default function CocktailList(props) {
 
 
 
+
     // modal
 
     const [show, setShow] = useState(false);
@@ -23,7 +24,7 @@ export default function CocktailList(props) {
 
 
 
-    console.log(props.drinks)
+    // console.log(props.drinks)
 
     // recipe call this function takes the id of the cocktail the user selected and sends it to the backend to search database for full recipe
     async function getRecipe(id) {
@@ -46,10 +47,17 @@ export default function CocktailList(props) {
 
     }
     // modal code for recipe's
+    if (props.loading === true) {
+        return (
+            <div>
+                Loading.....
+            </div>
+        )
+    }
 
 
 
-    if (props.drinks.length === 0 || props.drinks == null) {
+    else if (props.drinks.length === 0 || props.drinks == null) {
         return (
 
             < div >
@@ -58,6 +66,7 @@ export default function CocktailList(props) {
 
         );
     }
+
     return (
         <div>
 
@@ -69,12 +78,12 @@ export default function CocktailList(props) {
 
                 // this code maps over the drinks props and creates a card with a button for each cocktail
                 props.drinks.map((result) => (
-                    <Card id={result.idDrink} style={{ width: '18rem' }} className="float-left col-md-6 m-3">
+                    <Card key={result.idDrink} id={result.idDrink} style={{ width: '18rem' }} className="float-left col-md-6 m-3">
                         <Card.Img variant="top" className="mt-1" src={result.strDrinkThumb} />
                         <Card.Body>
                             <Card.Title className="card-Title">{result.strDrink}</Card.Title>
                             {/* modal */}
-                            <Modal show={show} onHide={handleClose}>
+                            <Modal key={recipe.idDrink} show={show} onHide={handleClose}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>{recipe.strDrink}</Modal.Title>
                                 </Modal.Header>
