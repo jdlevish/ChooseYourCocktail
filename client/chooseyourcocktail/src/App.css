@@ -89,6 +89,19 @@ height: 60vh;
 .App-link {
   color: #61dafb;
 }
+.page-link{
+  color:#AC1010!important;
+  /* border: 1px solid grey */
+  
+}
+.page-link:hover{
+  color:#da1d1d;
+  border:none;
+
+}
+.page-link > .active > a{
+  /* border: solid 1px #AC1010 !Important; */
+}
 
 @keyframes App-logo-spin {
   from {

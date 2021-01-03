@@ -42,6 +42,26 @@ app.get("/api/cocktailAPI/Cocktail/:id", function (req, res) {
 
 })
 
+// route for all cocktails 
+app.get("/api/cocktailAPI/AllCocktails/", function (req, res) {
+    // var id = req.params.id
+
+
+    axios({
+        "method": "GET",
+        "url": `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail`
+
+
+    })
+        .then((api) => {
+
+            console.log(api)
+            res.send(api.data.drinks)
+        })
+
+})
+
+
 
 // route to call cocktaildb for full recipe once selected by user
 app.get("/api/cocktailAPI/recipe/:id", function (req, res) {

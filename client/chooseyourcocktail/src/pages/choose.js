@@ -13,6 +13,7 @@ class choose extends React.Component {
 
                 <Nav />
                 <LiquorChoice />
+
             </div>
         );
     }
