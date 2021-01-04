@@ -1,5 +1,5 @@
 
-![](/client/chooseyourcocktail/src/images/screenCapture.png)
+![](./client/chooseyourcocktail/src/images/screenCapture.png)
 # ChooseYourCocktail
 
 ## ![](https://img.shields.io/github/license/Jdlevish/ChooseYourCocktail/)
@@ -37,7 +37,7 @@ there are no tests associated with this project at the moment.
     
 ## Contributing
     
-If you would like to contribute to this project please submit a Pull Request, or take a look at the open issues. For more complicated contributions please contact the maintainerjdlevish@gmail.com
+If you would like to contribute to this project please submit a Pull Request, or take a look at the open issues. For more complicated contributions please contact the maintainer jdlevish@gmail.com
 
 ## Additional questions
 contact the creator at jdlevish@gmail,com or Jdlevish on github.com
