@@ -102,6 +102,19 @@ height: 60vh;
 .page-link > .active > a{
   /* border: solid 1px #AC1010 !Important; */
 }
+/* basics pages */
+.basicsImage{
+  height:50vh;
+ 
+}
+.basicsText{
+  color:#AC1010;
+  font-family: 'Oswald', sans-serif;
+  padding-right: 5px;
+  padding-left:15px;
+  
+  
+}
 
 @keyframes App-logo-spin {
   from {
