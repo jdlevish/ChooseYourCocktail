@@ -28,7 +28,7 @@ class NavBarHome extends Component {
                         <Nav className="ml-auto color-navbar">
 
                             <NavDropdown title="Get Started" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Learn the Basics</NavDropdown.Item>
+                                <NavDropdown.Item href="/Basics">Learn the Basics</NavDropdown.Item>
                                 <NavDropdown.Item href="/choose">Choose your cocktail </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">What's New</NavDropdown.Item>
 
