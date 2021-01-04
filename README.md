@@ -1,5 +1,5 @@
 
-![](./client/chooseyourcocktail/src/images/screenCapture.png)
+![](/client/chooseyourcocktail/src/images/screenCapture.png)
 # ChooseYourCocktail
 
 ## ![](https://img.shields.io/github/license/Jdlevish/ChooseYourCocktail/)
