@@ -27,8 +27,8 @@ export default function DrinkRecipe({ recipe }) {
 
 
     return (
-        <div>
-            <table>
+        <div className="Cocktails pb-2">
+            <table className="pb-2">
 
                 {ingredients.map((value, index) => <tr><td>{value}</td><td>  </td> <td> {measures[index]}</td></tr>)}
 

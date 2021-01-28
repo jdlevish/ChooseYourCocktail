@@ -9,9 +9,9 @@ import LiquorChoice from "../components/liquorChoice";
 class choose extends React.Component {
     render() {
         return (
-            <div>
+            <div >
 
-                <Nav />
+
                 <LiquorChoice />
 
             </div>

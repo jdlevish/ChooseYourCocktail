@@ -78,10 +78,10 @@ export default function CocktailList(props) {
 
                 // this code maps over the drinks props and creates a card with a button for each cocktail
                 props.drinks.map((result) => (
-                    <Card key={result.idDrink} id={result.idDrink} style={{ width: '18rem' }} className="float-left col-md-6 m-3">
+                    <Card key={result.idDrink} id={result.idDrink} className="float-left col-md-3 m-3">
                         <Card.Img variant="top" className="mt-1" src={result.strDrinkThumb} />
                         <Card.Body>
-                            <Card.Title className="card-Title">{result.strDrink}</Card.Title>
+                            <Card.Title className="card-Title Cocktails">{result.strDrink}</Card.Title>
                             {/* modal */}
                             <Modal key={recipe.idDrink} show={show} onHide={handleClose}>
                                 <Modal.Header closeButton>

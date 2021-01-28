@@ -8,6 +8,9 @@ body{
   font-family: 'Playfair Display', serif;
 
 }
+.Cocktails{
+  font-family:'Oswald', sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -110,10 +113,14 @@ height: 60vh;
 .basicsText{
   color:#AC1010;
   font-family: 'Oswald', sans-serif;
+  font-size: 5vh;
   padding-right: 5px;
   padding-left:15px;
   
   
+}
+.card > a{
+  text-decoration: none;
 }
 
 @keyframes App-logo-spin {
