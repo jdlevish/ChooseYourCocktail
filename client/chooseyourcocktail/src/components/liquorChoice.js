@@ -23,16 +23,7 @@ export default function LiquorChoice(props) {
     const [currentPage, setCurrentPage] = useState(1);
     const [drinksPerPage] = useState(9);
 
-    // useEffect(() => {
-    //   const fetchPosts = async () => {
-    //     setLoading(true);
-    //     const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    //     setPosts(res.data);
-    //     setLoading(false);
-    //   };
 
-    //   fetchPosts();
-    // }, []);
 
     // Get current posts
     const indexOfLastDrink = currentPage * drinksPerPage;
@@ -167,11 +158,11 @@ export default function LiquorChoice(props) {
 
         return (
             <div>
-                <Container>
+                <Container >
 
                     <form className="pt-5" >
                         <input type="text" name="liquor" value={liquorValue} onKeyPress={(e) => handleKeyPress(e, liquorValue, searchType)} onChange={(e) => { setLiquorValue(e.target.value) }} />
-                        <select value={searchType} onChange={(e) => { setSearchType(e.target.value) }}>
+                        <select className="Cocktails" value={searchType} onChange={(e) => { setSearchType(e.target.value) }}>
                             <option value="Liquor">Liquor</option>
                             <option value="Ingredient">Ingredient</option>
                             <option value="Cocktail">Cocktail</option>

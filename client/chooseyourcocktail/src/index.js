@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
+
+  <BrowserRouter>
+    <Auth0ProviderWithHistory>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+    </Auth0ProviderWithHistory>
+  </BrowserRouter>
+  ,
   document.getElementById('root')
 );
 
