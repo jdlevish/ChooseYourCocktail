@@ -8,13 +8,13 @@ import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Auth0ProviderWithHistory>
-        <App />
-      </Auth0ProviderWithHistory>
-    </BrowserRouter>
-  </React.StrictMode>,
+
+  <BrowserRouter>
+    <Auth0ProviderWithHistory>
+      <App />
+    </Auth0ProviderWithHistory>
+  </BrowserRouter>
+  ,
   document.getElementById('root')
 );
 
