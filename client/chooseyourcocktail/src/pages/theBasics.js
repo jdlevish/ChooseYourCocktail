@@ -35,9 +35,9 @@ export default function theBasics() {
                         </div>
                     </a>
                 </div>
-                <div className="card float-right col-md-6  col-12" >
+                <div className="card float-right col-md-6 " >
                     <a href="/Basics/fun">
-                        <img className="pt-3  basicsImage" src={fun} alt="Card image cap" />
+                        <img className="pt-3  basicsImage image-fluid" src={fun} alt="Card image cap" />
                         <div className="card-body">
                             <h1 className='pt-2  basicsText'>The Fun</h1>
                         </div>
