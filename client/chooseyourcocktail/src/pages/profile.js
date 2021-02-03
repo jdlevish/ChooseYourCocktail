@@ -7,7 +7,7 @@ const Profile = () => {
     console.log()
     const { user } = useAuth0();
 
-    const { name, picture, email } = user;
+    const { name, picture, email, sub } = user;
 
     return (
         <div>
@@ -22,6 +22,7 @@ const Profile = () => {
                 <div className="col-md text-center text-md-left">
                     <h2>{name}</h2>
                     <p className="lead text-muted">{email}</p>
+                    <p className="lead text-muted">{sub}</p>
                 </div>
             </div>
             <div className="row">

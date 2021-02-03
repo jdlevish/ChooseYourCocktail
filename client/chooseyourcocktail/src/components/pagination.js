@@ -15,7 +15,7 @@ const Pagination = ({ drinksPerPage, totalDrinks, paginate }) => {
     }
 
     return (
-        <nav>
+        <nav className='pt-0'>
             <ul className='pagination'>
                 {pageNumbers.map(number => (
                     <li key={number} className='page-item'>
