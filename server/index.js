@@ -2,6 +2,23 @@ const express = require('express');
 const axios = require('axios');
 const path = require('path');
 const app = express();
+var jwt = require('express-jwt');
+var jwks = require('jwks-rsa');
+
+
+
+var jwtCheck = jwt({
+    secret: jwks.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: 'https://dev-4xzrdhpo.us.auth0.com/.well-known/jwks.json'
+    }),
+    audience: 'https://express.sample',
+    issuer: 'https://dev-4xzrdhpo.us.auth0.com/',
+    algorithms: ['RS256']
+});
+
 
 
 // route to search cocktaildb by ingredient or liquor type

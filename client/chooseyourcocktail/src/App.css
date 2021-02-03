@@ -49,6 +49,10 @@ body{
 .btn-danger{
   background-color:#AC1010 ;
 }
+.card-header{
+  border-bottom:none;
+  background-color:white;
+}
 .card-Title{
   height: 10vh;
   font-size: 1.3rem;

@@ -13,7 +13,7 @@ export default function theBasics() {
             <Container>
                 <div className="card float-left col-md-6  col-12"   >
                     <a href="/Basics/liquor">
-                        <img className="pt-3  basicsImage" src={liquor} alt="Card image cap" />
+                        <img className="pt-3 card-img-top  basicsImage" src={liquor} alt="Card image cap" />
                         <div className="card-body">
                             <h1 className='pt-2  basicsText'>The Liquor</h1>
                         </div>
@@ -21,7 +21,7 @@ export default function theBasics() {
                 </div>
                 <div className="card float-right col-md-6  col-12" >
                     <a href="/Basics/ingredients">
-                        <img className="pt-3  basicsImage" src={ingredients} alt="Card image cap" />
+                        <img className="pt-3 card-img-top basicsImage" src={ingredients} alt="Card image cap" />
                         <div className="card-body">
                             <h1 className='pt-2  basicsText'>The Ingredients</h1>
                         </div>
@@ -29,7 +29,7 @@ export default function theBasics() {
                 </div>
                 <div className="card float-left col-md-6  col-12" >
                     <a href="/Basics/tools">
-                        <img className="pt-3  basicsImage" src={tools} alt="Card image cap" />
+                        <img className="pt-3 card-img-top  basicsImage" src={tools} alt="Card image cap" />
                         <div className="card-body">
                             <h1 className='pt-2  basicsText'>The Tools</h1>
                         </div>
@@ -37,7 +37,7 @@ export default function theBasics() {
                 </div>
                 <div className="card float-right col-md-6 " >
                     <a href="/Basics/fun">
-                        <img className="pt-3  basicsImage image-fluid" src={fun} alt="Card image cap" />
+                        <img className="pt-3 card-img-top  basicsImage " src={fun} alt="Card image cap" />
                         <div className="card-body">
                             <h1 className='pt-2  basicsText'>The Fun</h1>
                         </div>
