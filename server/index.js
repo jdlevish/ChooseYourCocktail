@@ -2,24 +2,34 @@ const express = require('express');
 const axios = require('axios');
 const path = require('path');
 const app = express();
+const mongoose = require('mongoose');
 var jwt = require('express-jwt');
 var jwks = require('jwks-rsa');
+const { checkJwt } = require('./auth/check-Jwt');
+require('dotenv').config()
+
+
+mongoose.promise = global.Promise;
+
+
+// mongoose model
+require('./model/favoritesModel')
+const Favorites = mongoose.model('Favorites');
+
+
+// mongo connection 
+mongoose.connect(process.env.MONGODB_URI);
+mongoose.set('debug', true);
 
 
 
-var jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: 'https://dev-4xzrdhpo.us.auth0.com/.well-known/jwks.json'
-    }),
-    audience: 'https://express.sample',
-    issuer: 'https://dev-4xzrdhpo.us.auth0.com/',
-    algorithms: ['RS256']
-});
 
+// protected routes
+// add favorite
+app.post("/api/favorites/", checkJwt, (req, res) => {
+    var favorite = req.body;
 
+})
 
 // route to search cocktaildb by ingredient or liquor type
 app.get("/api/cocktailAPI/:liqour", function (req, res) {
