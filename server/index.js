@@ -14,8 +14,7 @@ mongoose.promise = global.Promise;
 
 // mongoose model
 require('./model/favoritesModel')
-const Favorites = mongoose.model('Favorites');
-
+const Favorite = mongoose.model('Favorites');
 
 // mongo connection 
 mongoose.connect(process.env.MONGODB_URI);
@@ -26,8 +25,21 @@ mongoose.set('debug', true);
 
 // protected routes
 // add favorite
-app.post("/api/favorites/", checkJwt, (req, res) => {
-    var favorite = req.body;
+app.post("/api/favorites/:id", checkJwt, (req, res) => {
+    const cocktailId = req.params.id;
+    const user = req.user.sub
+    var newFavorite = new Favorite({
+        user_id: user,
+        favorite_id: cocktailId
+    });
+    console.log(newFavorite)
+    newFavorite.save(function (err, doc) {
+        if (err) return console.error(err);
+        console.log("Document inserted succussfully!");
+    });
+    res.status(204).end();
+
+
 
 })
 
