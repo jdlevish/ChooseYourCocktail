@@ -79,7 +79,7 @@ export default function CocktailList(props) {
 
                 // this code maps over the drinks props and creates a card with a button for each cocktail
                 props.drinks.map((result) => (
-                    <Card key={result.idDrink} id={result.idDrink} className="float-left col-md-3 m-3">
+                    <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3 m-3">
                         <Card.Header className="container-fluid"><BookMark key={result.idDrink} id={result.idDrink} /></Card.Header>
 
 
@@ -106,7 +106,7 @@ export default function CocktailList(props) {
                             </Modal>
 
 
-                            <Button variant="secondary" onClick={() => getRecipe(result.idDrink).then(handleShow)} >Click here for full recipe</Button>
+                            <Button className="shadow-sm" variant="secondary" onClick={() => getRecipe(result.idDrink).then(handleShow)} >Click here for full recipe</Button>
 
                         </Card.Body>
                     </Card>

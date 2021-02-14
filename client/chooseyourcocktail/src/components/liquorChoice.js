@@ -1,15 +1,18 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component, useState, useEffect, useContext } from 'react';
 //Boostrap
 import { Container, Row, Button } from 'react-bootstrap';
 import $ from "jquery";
 import CocktailList from './cocktaillist';
 import Pagination from './pagination';
+import { Context } from '../functions/contexStore.js'
 
 
 
 
 // component to allow user to chose the base liquor of the cocktail the user is looking for 
 export default function LiquorChoice(props) {
+    // contex Reducer
+    const [state, dispatch] = useContext(Context);
     const [drinks, setDrinks] = useState([]);
     const [liquorValue, setLiquorValue] = useState("");
     const [searchType, setSearchType] = useState("Liquor");
@@ -46,7 +49,7 @@ export default function LiquorChoice(props) {
                     method: "GET"
 
                 })
-                // console.log(res)
+                await dispatch({ type: 'SET_DRINKS', payload: res })
                 await setDrinks(res)
                 setLoading(false);
                 // console.log(drinks)

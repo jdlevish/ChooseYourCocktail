@@ -9,14 +9,13 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons'
 
 
 export default function BookMark(props) {
-    const { user } = useAuth0();
-    const { sub } = user
+
     const { getAccessTokenSilently } = useAuth0();
     const [favorite, setFavorite] = useState("");
     console.log(props)
     async function sendFavorite(id) {
         console.log(id)
-        console.log(sub)
+
         try {
             const token = await getAccessTokenSilently();
 

@@ -14,6 +14,8 @@ import Loading from './components/loading.js'
 import ProtectedRoute from "./auth/protected-route";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import UserFavorites from './pages/userFavorites';
+import Store from './functions/contexStore.js'
 
 function App() {
   const { isLoading } = useAuth0();
@@ -21,44 +23,49 @@ function App() {
     return <Loading />;
   }
   return (
-    <div>
-      <Nav />
+    <Store>
+      <div>
+        <Nav />
 
-      <Switch>
+        <Switch>
 
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route path='/home'>
-          <Home />
-        </Route>
-        <Route path='/choose' >
-          <Choose />
-        </Route>
-        <Route path='/Basics/ingredients' >
-          <ingredients />
-        </Route>
-        <Route path='/Basics/liquor'>
-          <Liquor />
-        </Route>
-        <Route path='/Basics'>
-          <Basics />
-        </Route>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/home'>
+            <Home />
+          </Route>
+          <Route path='/choose' >
+            <Choose />
+          </Route>
+          <Route path='/Basics/ingredients' >
+            <ingredients />
+          </Route>
+          <Route path='/Basics/liquor'>
+            <Liquor />
+          </Route>
+          <Route path='/Basics'>
+            <Basics />
+          </Route>
 
-        <ProtectedRoute path='/Profile'>
-          <Profile />
-        </ProtectedRoute>
-
-
-
-
-      </Switch>
-
+          <ProtectedRoute path='/Profile'>
+            <Profile />
+          </ProtectedRoute>
+          <ProtectedRoute path='/favorites'>
+            <UserFavorites />
+          </ProtectedRoute>
 
 
 
 
-    </div >
+        </Switch>
+
+
+
+
+
+      </div >
+    </Store>
   );
 }
 

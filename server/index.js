@@ -42,6 +42,19 @@ app.post("/api/favorites/:id", checkJwt, (req, res) => {
 
 
 })
+// retrieve logged in users favorite cocktails 
+app.get("/api/favorites/", checkJwt, (req, res) => {
+    const user = req.user.sub
+    Favorite.find({
+        user_id: user
+    }).then((data) => {
+        console.log(data);
+        res.json(data);
+    })
+
+
+
+})
 
 // route to search cocktaildb by ingredient or liquor type
 app.get("/api/cocktailAPI/:liqour", function (req, res) {
