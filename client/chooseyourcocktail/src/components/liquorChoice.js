@@ -49,7 +49,7 @@ export default function LiquorChoice(props) {
                     method: "GET"
 
                 })
-                await dispatch({ type: 'SET_DRINKS', payload: res })
+
                 await setDrinks(res)
                 setLoading(false);
                 // console.log(drinks)
@@ -140,6 +140,7 @@ export default function LiquorChoice(props) {
                 (result) => {
                     setIsLoaded(true);
                     console.log(result)
+                    dispatch({ type: 'SET_DRINKS', payload: result.drinks })
                     setDrinks(result.drinks);
                 },
                 // Note: it's important to handle errors here
