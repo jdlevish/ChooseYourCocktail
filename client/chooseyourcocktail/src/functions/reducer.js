@@ -5,7 +5,11 @@ const Reducer = (state, action) => {
                 ...state,
                 Drinks: action.payload
             };
-
+        case 'SET_FAVORITES':
+            return {
+                ...state,
+                Favorites: action.payload
+            };
         default:
             return state;
     }

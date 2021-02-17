@@ -59,6 +59,7 @@ export default function UserFavorites() {
             await console.log(res)
             await setFavorite(res);
 
+
             console.log(res)
 
 

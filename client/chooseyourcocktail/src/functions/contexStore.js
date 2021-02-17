@@ -3,7 +3,9 @@ import Reducer from './reducer.js'
 
 
 const initialState = {
-    Drinks: []
+    Drinks: [],
+    Favorites: []
+
 
 };
 
