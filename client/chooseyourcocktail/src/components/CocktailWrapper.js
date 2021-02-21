@@ -4,12 +4,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 // import useFavorites from '../functions/GetFavorites.js';
 import $ from "jquery";
 
-export default function CocktailWraper() {
+export default function CocktailWrapper() {
     const [state, dispatch] = useContext(Context);
     const [isLoaded, setIsLoaded] = useState(true);
     const [error, setError] = useState("");
-    const { user } = useAuth0();
-    const { sub } = user
+    const { user, isAuthenticated } = useAuth0();
+    // const { sub } = user
     const { getAccessTokenSilently } = useAuth0();
 
     useEffect(() => {
@@ -30,37 +30,44 @@ export default function CocktailWraper() {
                     setIsLoaded(true);
                     setError(error);
                 }
-            ).then(async () => {
+            ).then(
+                isAuthenticated ? async () => {
 
 
 
-                try {
-                    const token = await getAccessTokenSilently();
+                    try {
+                        const token = await getAccessTokenSilently();
 
-                    const res = await $.ajax({
-                        url: "/api/favorites/",
-                        method: "GET",
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        }
-                    })
+                        const res = await $.ajax({
+                            url: "/api/favorites/",
+                            method: "GET",
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                            }
+                        })
+                        await console.log(res)
 
-
-                    await dispatch({ type: 'SET_FAVORITES', payload: res })
-
-
+                        await dispatch({ type: 'SET_FAVORITES', payload: res[0].favorite_id })
 
 
 
-                }
-                catch (error) {
-                    console.log(error);
-                }
 
 
-            })
+                    }
+                    catch (error) {
+                        console.log(error);
+                    }
+
+
+
+                } : {}
+            )
+
+
+
 
     }, [])
+
     return (
         <div>
 

@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 var jwt = require('express-jwt');
 var jwks = require('jwks-rsa');
 const { checkJwt } = require('./auth/check-Jwt');
+const { readSync } = require('fs');
 require('dotenv').config()
 
 
@@ -28,16 +29,100 @@ mongoose.set('debug', true);
 app.post("/api/favorites/:id", checkJwt, (req, res) => {
     const cocktailId = req.params.id;
     const user = req.user.sub
-    var newFavorite = new Favorite({
-        user_id: user,
-        favorite_id: cocktailId
-    });
-    console.log(newFavorite)
-    newFavorite.save(function (err, doc) {
-        if (err) return console.error(err);
-        console.log("Document inserted succussfully!");
-    });
-    res.status(204).end();
+    Favorite.exists({ user_id: user }, (err, result) => {
+        if (err) {
+            console.log(err)
+        }
+        if (!result) {
+            var newFavorite = new Favorite({
+                user_id: user,
+                favorite_id: cocktailId
+            });
+            console.log(newFavorite)
+            newFavorite.save(function (err, doc) {
+                if (err) return console.error(err);
+                console.log("Document inserted succussfully!");
+            });
+        }
+        Favorite.find({
+            user_id: user
+        }).then((data) => {
+
+
+
+            console.log(data[0]._id);
+            let id = data[0]._id
+            Favorite.findOneAndUpdate(
+                { _id: id },
+                {
+                    $push: {
+                        favorite_id: cocktailId
+                    }
+                }, function (error, success) {
+
+                    if (error) {
+
+                        console.log(error);
+
+                    } else {
+
+                        console.log(success);
+
+                    }
+
+                });
+
+        }
+        )
+
+        // Favorite.find({
+        //     user_id: user
+        // }).then((data) => {
+
+
+
+        //     console.log(data[0]._id);
+        //     let id = data[0]._id
+        //     Favorite.findOneAndUpdate(
+        //         { _id: id },
+        //         {
+        //             $push: {
+        //                 favorite_id: cocktailId
+        //             }
+        //         }, function (error, success) {
+
+        //             if (error) {
+
+        //                 console.log(error);
+
+        //             } else {
+
+        //                 console.log(success);
+
+        //             }
+
+        //         });
+
+        // res.json(data);
+
+
+    })
+
+
+
+
+        // var newFavorite = new Favorite({
+        //     user_id: user,
+        //     favorite_id: cocktailId
+        // });
+        // console.log(newFavorite)
+        // newFavorite.save(function (err, doc) {
+        //     if (err) return console.error(err);
+        //     console.log("Document inserted succussfully!");
+        // });
+        +
+
+        res.status(204).end();
 
 
 
@@ -79,7 +164,7 @@ app.get("/api/cocktailAPI/:liqour", function (req, res) {
 app.get("/api/cocktailAPI/Cocktail/:id", function (req, res) {
     var id = req.params.id
 
-
+    console.log(req)
     axios({
         "method": "GET",
         "url": `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + id,
@@ -95,13 +180,11 @@ app.get("/api/cocktailAPI/Cocktail/:id", function (req, res) {
 })
 
 // route for all cocktails 
-app.get("/api/cocktailAPI/AllCocktails/", function (req, res) {
-    // var id = req.params.id
-
+app.get("/AllCocktails", function (req, res) {
 
     axios({
         "method": "GET",
-        "url": `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail`
+        "url": `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail`,
 
 
     })

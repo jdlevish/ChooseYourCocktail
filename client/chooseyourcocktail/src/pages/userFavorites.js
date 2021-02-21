@@ -42,35 +42,35 @@ export default function UserFavorites() {
 
 
     // this function calls the api and returns the logged in users favorites from the mongodb database
-    async function getFavorites() {
+    // async function getFavorites() {
 
 
-        try {
-            const token = await getAccessTokenSilently();
+    //     try {
+    //         const token = await getAccessTokenSilently();
 
-            const res = await $.ajax({
-                url: "/api/favorites/",
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                }
-            })
+    //         const res = await $.ajax({
+    //             url: "/api/favorites/",
+    //             method: "GET",
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`,
+    //             }
+    //         })
 
-            await console.log(res)
-            await setFavorite(res);
-
-
-            console.log(res)
+    //         await console.log(res)
+    //         await setFavorite(res);
 
 
-
-        }
-        catch (error) {
-            console.log(error);
-        }
+    //         console.log(res)
 
 
-    }
+
+    //     }
+    //     catch (error) {
+    //         console.log(error);
+    //     }
+
+
+    // }
     // get all cocktails to filter
 
     // gets full recipe
@@ -96,13 +96,14 @@ export default function UserFavorites() {
     // function to filter favorites from drinksArray
 
     function filterFavorites(drinksArray, drinks) {
+
         for (let i = 0; i < drinks.length; i++) {
             for (let j = 0; j < drinksArray.length; j++) {
                 console.log("drinksArray: " + drinksArray[j].idDrink);
-                console.log("comparison : " + (drinksArray[j].idDrink === drinks[i].favorite_id.toString()))
-                console.log("user favorite: " + drinks[i].favorite_id.toString());
+                console.log("comparison : " + (drinksArray[j].idDrink === drinks[i].toString()))
+                console.log("user favorite: " + drinks[i].toString());
                 // console.log(drinksArray[i].idDrink === drinks[i].favorite_id.toString())
-                if (drinksArray[j].idDrink === drinks[i].favorite_id.toString()) {
+                if (drinksArray[j].idDrink === drinks[i].toString()) {
                     favoriteArray.push(drinksArray[j])
                     console.log("favoritesArray: " + favoriteArray[0]);
                 }
@@ -110,8 +111,8 @@ export default function UserFavorites() {
         }
     }
     // this calls the api to get the favorites when the favorites page is loaded
-    useEffect(() => { getFavorites() }, []);
-    filterFavorites(drinksArray, favorite);
+    // useEffect(() => { getFavorites() }, []);
+    filterFavorites(drinksArray, state.Favorites);
 
     return (
         <div>

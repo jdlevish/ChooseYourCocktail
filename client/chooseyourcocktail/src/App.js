@@ -18,7 +18,7 @@ import './App.css';
 import UserFavorites from './pages/userFavorites';
 import { Context } from './functions/contexStore.js'
 import Store from './functions/contexStore.js'
-import CocktailWraper from './components/CocktailWraper.js'
+import CocktailWrapper from './components/CocktailWrapper.js'
 
 
 function App() {
@@ -31,13 +31,13 @@ function App() {
   }
 
   return (
-
     <Store>
 
+      <CocktailWrapper />
 
 
       <Nav />
-      <CocktailWraper />
+
 
       <Switch>
 
