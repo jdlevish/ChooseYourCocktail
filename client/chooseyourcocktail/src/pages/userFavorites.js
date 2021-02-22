@@ -41,37 +41,7 @@ export default function UserFavorites() {
 
 
 
-    // this function calls the api and returns the logged in users favorites from the mongodb database
-    // async function getFavorites() {
 
-
-    //     try {
-    //         const token = await getAccessTokenSilently();
-
-    //         const res = await $.ajax({
-    //             url: "/api/favorites/",
-    //             method: "GET",
-    //             headers: {
-    //                 Authorization: `Bearer ${token}`,
-    //             }
-    //         })
-
-    //         await console.log(res)
-    //         await setFavorite(res);
-
-
-    //         console.log(res)
-
-
-
-    //     }
-    //     catch (error) {
-    //         console.log(error);
-    //     }
-
-
-    // }
-    // get all cocktails to filter
 
     // gets full recipe
     async function getRecipe(id) {
@@ -116,7 +86,10 @@ export default function UserFavorites() {
 
     return (
         <div>
+
             <Container>
+                <h1 className="favoriteHeader pb-5 pt-3"> {user.nickname}'s  favorite cocktails</h1>
+                <h6 className="favoriteHeader"> to remove a cocktail from your favorites, click on the bookmark again and it will be removed</h6>
                 {
                     // this code maps over the drinks props and creates a card with a button for each cocktail
                     favoriteArray.map((result) => (

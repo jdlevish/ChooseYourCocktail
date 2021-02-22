@@ -47,33 +47,58 @@ app.post("/api/favorites/:id", checkJwt, (req, res) => {
         Favorite.find({
             user_id: user
         }).then((data) => {
+            // checks if cocktail is already in favorites array
+            if (data[0].favorite_id.indexOf(cocktailId) != -1) {
+                let id = data[0]._id
+                Favorite.findOneAndUpdate(
+                    { _id: id },
+                    {
+                        $pull: {
+                            favorite_id: cocktailId
+                        }
+                    }, function (error, success) {
+
+                        if (error) {
+
+                            console.log(error);
+
+                        } else {
+
+                            console.log(success);
+
+                        }
+
+                    });
+            }
+            else {
 
 
+                console.log("favorite array :" + data[0].favorite_id.indexOf(cocktailId));
+                let id = data[0]._id
+                Favorite.findOneAndUpdate(
+                    { _id: id },
+                    {
+                        $push: {
+                            favorite_id: cocktailId
+                        }
+                    }, function (error, success) {
 
-            console.log(data[0]._id);
-            let id = data[0]._id
-            Favorite.findOneAndUpdate(
-                { _id: id },
-                {
-                    $push: {
-                        favorite_id: cocktailId
-                    }
-                }, function (error, success) {
+                        if (error) {
 
-                    if (error) {
+                            console.log(error);
 
-                        console.log(error);
+                        } else {
 
-                    } else {
+                            console.log(success);
 
-                        console.log(success);
+                        }
 
-                    }
+                    });
 
-                });
-
+            }
         }
         )
+
 
         // Favorite.find({
         //     user_id: user

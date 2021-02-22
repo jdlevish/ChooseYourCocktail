@@ -129,6 +129,10 @@ height: 60vh;
 .card > a{
   text-decoration: none;
 }
+/* favorites page */
+.favoriteHeader{
+  text-align: center;
+}
 
 @keyframes App-logo-spin {
   from {
