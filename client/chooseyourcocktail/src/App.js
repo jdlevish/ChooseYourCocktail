@@ -1,3 +1,4 @@
+import React, { useEffect, useContext, useState } from 'react'
 import logo from './logo.svg';
 import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
 import { Col, Row, Image, Container } from "react-bootstrap";
@@ -14,15 +15,29 @@ import Loading from './components/loading.js'
 import ProtectedRoute from "./auth/protected-route";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import UserFavorites from './pages/userFavorites';
+import { Context } from './functions/contexStore.js'
+import Store from './functions/contexStore.js'
+import CocktailWrapper from './components/CocktailWrapper.js'
+
 
 function App() {
+
+
   const { isLoading } = useAuth0();
+
   if (isLoading) {
     return <Loading />;
   }
+
   return (
-    <div>
+    <Store>
+
+      <CocktailWrapper />
+
+
       <Nav />
+
 
       <Switch>
 
@@ -48,6 +63,9 @@ function App() {
         <ProtectedRoute path='/Profile'>
           <Profile />
         </ProtectedRoute>
+        <ProtectedRoute path='/favorites'>
+          <UserFavorites />
+        </ProtectedRoute>
 
 
 
@@ -58,7 +76,10 @@ function App() {
 
 
 
-    </div >
+
+
+    </Store >
+
   );
 }
 

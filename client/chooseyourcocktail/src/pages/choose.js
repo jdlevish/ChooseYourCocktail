@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 //components
-import Nav from "../components/Nav";
 import LiquorChoice from "../components/liquorChoice";
 
 

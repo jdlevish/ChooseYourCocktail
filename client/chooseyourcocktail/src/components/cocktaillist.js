@@ -3,10 +3,8 @@ import React, { Component, useState } from 'react';
 import { Container, Card, Modal, Button } from 'react-bootstrap';
 import $ from "jquery";
 import DrinkRecipe from "./DrinkRecipe"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { far } from '@fortawesome/free-brands-svg-icons'
-
-import { faBookmark } from '@fortawesome/free-regular-svg-icons'
+import BookMark from "./BookMark"
+import Loading from './loading';
 
 export default function CocktailList(props) {
     const [recipe, setRecipe] = useState("");
@@ -53,8 +51,7 @@ export default function CocktailList(props) {
     // modal code for recipe's
     if (props.loading === true) {
         return (
-            <div>
-                Loading.....
+            <div><Loading></Loading>
             </div>
         )
     }
@@ -82,8 +79,8 @@ export default function CocktailList(props) {
 
                 // this code maps over the drinks props and creates a card with a button for each cocktail
                 props.drinks.map((result) => (
-                    <Card key={result.idDrink} id={result.idDrink} className="float-left col-md-3 m-3">
-                        <Card.Header className="container-fluid"><FontAwesomeIcon icon={faBookmark} size='2x' color="#AC1010" /></Card.Header>
+                    <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3 m-3">
+                        <Card.Header className="container-fluid"><BookMark key={result.idDrink} id={result.idDrink} /></Card.Header>
 
 
                         <Card.Img variant="top" className="mt-1" src={result.strDrinkThumb} />
@@ -109,7 +106,7 @@ export default function CocktailList(props) {
                             </Modal>
 
 
-                            <Button variant="secondary" onClick={() => getRecipe(result.idDrink).then(handleShow)} >Click here for full recipe</Button>
+                            <Button className="shadow-sm" variant="secondary" onClick={() => getRecipe(result.idDrink).then(handleShow)} >Click here for full recipe</Button>
 
                         </Card.Body>
                     </Card>
