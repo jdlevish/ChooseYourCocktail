@@ -133,6 +133,9 @@ height: 60vh;
 .favoriteHeader{
   text-align: center;
 }
+.userImage{
+  border-radius: 50%;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Loading from '../components/loading';
 import { Context } from '../functions/contexStore.js'
 import $ from "jquery";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 
 
@@ -18,7 +18,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 
-export default function UserFavorites() {
+const UserFavorites = () => {
 
     const [state, dispatch] = useContext(Context)
     const { user } = useAuth0();
@@ -26,6 +26,7 @@ export default function UserFavorites() {
     const { getAccessTokenSilently } = useAuth0();
     const [favorite, setFavorite] = useState([]);
     const [recipe, setRecipe] = useState("");
+    const userImage = user.picture
 
 
 
@@ -88,7 +89,8 @@ export default function UserFavorites() {
         <div>
 
             <Container>
-                <h1 className="favoriteHeader pb-5 pt-3"> {user.nickname}'s  favorite cocktails</h1>
+                <h1 className=" favoriteHeader pb-3 pt-3"><u> {user.nickname}'s  favorite cocktails</u></h1>
+                <img className=" rounded-circle  mx-auto d-block pb-2" src={userImage} />
                 <h6 className="favoriteHeader"> to remove a cocktail from your favorites, click on the bookmark again and it will be removed</h6>
                 {
                     // this code maps over the drinks props and creates a card with a button for each cocktail
@@ -133,3 +135,6 @@ export default function UserFavorites() {
 
     )
 }
+export default withAuthenticationRequired(UserFavorites, {
+    onRedirecting: () => <Loading />,
+});

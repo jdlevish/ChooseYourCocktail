@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 import { faBookmark } from '@fortawesome/free-regular-svg-icons'
+// import { fasBookmark } from '@fortawesome/free-solid-svg-icons '
 
 
 export default function BookMark(props) {
