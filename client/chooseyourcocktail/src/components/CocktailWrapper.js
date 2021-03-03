@@ -4,6 +4,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 // import useFavorites from '../functions/GetFavorites.js';
 import $ from "jquery";
 
+
+
+
 export default function CocktailWrapper() {
     const [state, dispatch] = useContext(Context);
     const [isLoaded, setIsLoaded] = useState(true);
@@ -11,7 +14,8 @@ export default function CocktailWrapper() {
     const { user, isAuthenticated } = useAuth0();
     // const { sub } = user
     const { getAccessTokenSilently } = useAuth0();
-
+    const CocktailKey = process.env.COCKTAIL_KEY;
+    console.log(process.env)
     useEffect(() => {
 
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
@@ -47,7 +51,7 @@ export default function CocktailWrapper() {
                         })
                         await console.log(res)
 
-                        await dispatch({ type: 'SET_FAVORITES', payload: res[0].favorite_id })
+                        await dispatch({ type: 'SET_FAVORITES', payload: res })
 
 
 

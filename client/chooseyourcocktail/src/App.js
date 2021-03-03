@@ -33,13 +33,16 @@ function App() {
   return (
     <Store>
 
+
       <CocktailWrapper />
 
-
       <Nav />
+      {/* <CocktailWrapper /> */}
+
 
 
       <Switch>
+
 
         <Route exact path='/'>
           <Home />
@@ -66,6 +69,7 @@ function App() {
         <ProtectedRoute path='/favorites'>
           <UserFavorites />
         </ProtectedRoute>
+
 
 
 

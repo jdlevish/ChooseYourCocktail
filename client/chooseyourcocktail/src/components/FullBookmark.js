@@ -1,22 +1,18 @@
-import { React, useState, useContext } from 'react'
+import { React, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import $ from "jquery";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Context } from '../functions/contexStore.js'
 
-
-
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons'
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+// import { faBookmark } from '@fortawesome/free-regular-svg-icons'
 // import { fasBookmark } from '@fortawesome/free-solid-svg-icons '
 
 
-export default function BookMark(props) {
-    const [state, dispatch] = useContext(Context);
+export default function FullBookMark(props) {
+
     const { getAccessTokenSilently } = useAuth0();
-    const [favorite, setFavorite] = useState(state.Favorites[0].favorite_id);
+    const [favorite, setFavorite] = useState("");
     console.log(props)
-    console.log(favorite)
     async function sendFavorite(id) {
         console.log(id)
 
@@ -37,14 +33,9 @@ export default function BookMark(props) {
 
 
     }
-
     return (
         <div>
-
-            <BookmarkBorderIcon className="float-left" style={{ color: "#AC1010", fontSize: 50 }} onClick={() => { sendFavorite(props.id) }} />
+            <BookmarkIcon className="float-left" style={{ color: "#AC1010", fontSize: 50 }} onClick={() => { sendFavorite(props.id) }} />
         </div>
     )
-
-
-
 }

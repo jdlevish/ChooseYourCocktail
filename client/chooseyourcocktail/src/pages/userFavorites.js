@@ -4,12 +4,13 @@
 import { React, useState, useEffect, useContext } from 'react'
 import { Container, Card, Modal, Button } from 'react-bootstrap';
 import DrinkRecipe from "../components/DrinkRecipe"
-import BookMark from "../components/BookMark"
+import FullBookMark from "../components/FullBookmark"
 import "bootstrap/dist/css/bootstrap.min.css";
 import Loading from '../components/loading';
 import { Context } from '../functions/contexStore.js'
 import $ from "jquery";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import context from 'react-bootstrap/esm/AccordionContext';
 
 
 
@@ -27,6 +28,8 @@ const UserFavorites = () => {
     const [favorite, setFavorite] = useState([]);
     const [recipe, setRecipe] = useState("");
     const userImage = user.picture
+    const { isAuthenticated } = useAuth0();
+
 
 
 
@@ -38,9 +41,43 @@ const UserFavorites = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     // declares drinksArray from the Global store
-    const drinksArray = state.Drinks;
+    // console.log(context)+
+
+    // const drinksArray = state.Drinks;
 
 
+
+
+    async function userFavorites() {
+
+
+
+        try {
+            const token = await getAccessTokenSilently();
+
+            const res = await $.ajax({
+                url: "/api/favorites/",
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            })
+            await console.log(res[0].favorite_id)
+
+            await setFavorite(res[0].favorite_id)
+
+
+
+
+
+        }
+        catch (error) {
+            console.log(error);
+        }
+
+
+
+    }
 
 
 
@@ -66,15 +103,16 @@ const UserFavorites = () => {
     }
     // function to filter favorites from drinksArray
 
-    function filterFavorites(drinksArray, drinks) {
+    function filterFavorites(drinksArray, drink) {
+        console.log(drink)
 
-        for (let i = 0; i < drinks.length; i++) {
+        for (let i = 0; i < drink.length; i++) {
             for (let j = 0; j < drinksArray.length; j++) {
                 console.log("drinksArray: " + drinksArray[j].idDrink);
-                console.log("comparison : " + (drinksArray[j].idDrink === drinks[i].toString()))
-                console.log("user favorite: " + drinks[i].toString());
+                console.log("comparison : " + (drinksArray[j].idDrink === drink[i].toString()))
+                console.log("user favorite: " + drink[i].toString());
                 // console.log(drinksArray[i].idDrink === drinks[i].favorite_id.toString())
-                if (drinksArray[j].idDrink === drinks[i].toString()) {
+                if (drinksArray[j].idDrink === drink[i].toString()) {
                     favoriteArray.push(drinksArray[j])
                     console.log("favoritesArray: " + favoriteArray[0]);
                 }
@@ -82,8 +120,13 @@ const UserFavorites = () => {
         }
     }
     // this calls the api to get the favorites when the favorites page is loaded
-    // useEffect(() => { getFavorites() }, []);
-    filterFavorites(drinksArray, state.Favorites);
+    // useEffect(() => { filterFavorites(drinksArray, state.Favorites); }, []);
+    // console.log(state)
+    const drinksArray = state.Drinks;
+    // const favorites = state.favorite
+
+    useEffect(() => { userFavorites() }, []);
+    filterFavorites(drinksArray, favorite)
 
     return (
         <div>
@@ -96,7 +139,7 @@ const UserFavorites = () => {
                     // this code maps over the drinks props and creates a card with a button for each cocktail
                     favoriteArray.map((result) => (
                         <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3 m-3">
-                            <Card.Header className="container-fluid"><BookMark key={result.idDrink} id={result.idDrink} /></Card.Header>
+                            <Card.Header className="container-fluid"><FullBookMark key={result.idDrink} id={result.idDrink} /></Card.Header>
 
 
                             <Card.Img variant="top" className="mt-1" src={result.strDrinkThumb} />

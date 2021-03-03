@@ -9,7 +9,7 @@ const { checkJwt } = require('./auth/check-Jwt');
 const { readSync } = require('fs');
 require('dotenv').config()
 
-
+console.log(process.env)
 mongoose.promise = global.Promise;
 
 

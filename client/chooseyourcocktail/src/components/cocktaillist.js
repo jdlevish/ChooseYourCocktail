@@ -3,7 +3,7 @@ import React, { Component, useState } from 'react';
 import { Container, Card, Modal, Button } from 'react-bootstrap';
 import $ from "jquery";
 import DrinkRecipe from "./DrinkRecipe"
-import BookMark from "./BookMark"
+import BookmarkDisplay from "./Bookmark-display"
 import Loading from './loading';
 
 export default function CocktailList(props) {
@@ -80,7 +80,7 @@ export default function CocktailList(props) {
                 // this code maps over the drinks props and creates a card with a button for each cocktail
                 props.drinks.map((result) => (
                     <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3 m-3">
-                        <Card.Header className="container-fluid"><BookMark key={result.idDrink} id={result.idDrink} /></Card.Header>
+                        <Card.Header className="container-fluid"><BookmarkDisplay key={result.idDrink} id={result.idDrink} /></Card.Header>
 
 
                         <Card.Img variant="top" className="mt-1" src={result.strDrinkThumb} />
