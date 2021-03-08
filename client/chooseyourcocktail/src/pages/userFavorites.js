@@ -135,10 +135,12 @@ const UserFavorites = () => {
                 <h1 className=" favoriteHeader pb-3 pt-3"><u> {user.nickname}'s  favorite cocktails</u></h1>
                 <img className=" rounded-circle  mx-auto d-block pb-2" src={userImage} />
                 <h6 className="favoriteHeader"> to remove a cocktail from your favorites, click on the bookmark again and it will be removed</h6>
+
                 {
                     // this code maps over the drinks props and creates a card with a button for each cocktail
                     favoriteArray.map((result) => (
-                        <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3 m-3">
+
+                        <Card key={result.idDrink} id={result.idDrink} className="shadow  col-3 d-inline-flex mr-3 mb-3 mt-3 ml-5 ">
                             <Card.Header className="container-fluid"><FullBookMark key={result.idDrink} id={result.idDrink} /></Card.Header>
 
 
@@ -171,8 +173,10 @@ const UserFavorites = () => {
                         </Card>
 
 
+
                     ))
                 }
+
             </Container>
         </div>
 

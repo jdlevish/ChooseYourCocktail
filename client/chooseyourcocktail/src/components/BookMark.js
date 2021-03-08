@@ -12,11 +12,12 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons'
 
 
 export default function BookMark(props) {
+    const { isAuthenticated } = useAuth0();
     const [state, dispatch] = useContext(Context);
     const { getAccessTokenSilently } = useAuth0();
-    const [favorite, setFavorite] = useState(state.Favorites[0].favorite_id);
+    // const [favorite, setFavorite] = useState(state.Favorites[0].favorite_id);
     console.log(props)
-    console.log(favorite)
+    // console.log(favorite)
     async function sendFavorite(id) {
         console.log(id)
 
