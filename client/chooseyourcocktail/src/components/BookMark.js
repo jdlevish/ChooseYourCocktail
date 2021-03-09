@@ -12,7 +12,8 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons'
 
 
 export default function BookMark(props) {
-    const { isAuthenticated } = useAuth0();
+    const { isAuthenticated, loginWithRedirect } = useAuth0();
+
     const [state, dispatch] = useContext(Context);
     const { getAccessTokenSilently } = useAuth0();
     // const [favorite, setFavorite] = useState(state.Favorites[0].favorite_id);
@@ -41,8 +42,8 @@ export default function BookMark(props) {
 
     return (
         <div>
-
-            <BookmarkBorderIcon className="float-left" style={{ color: "#AC1010", fontSize: 50 }} onClick={() => { sendFavorite(props.id) }} />
+            {/* adding authetication handeling for bookmark */}
+            <BookmarkBorderIcon className="float-left" style={{ color: "#AC1010", fontSize: 50 }} onClick={() => { isAuthenticated ? sendFavorite(props.id) : loginWithRedirect() }} />
         </div>
     )
 
