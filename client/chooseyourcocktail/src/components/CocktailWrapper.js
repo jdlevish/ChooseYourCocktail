@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../functions/contexStore.js'
 import { useAuth0 } from "@auth0/auth0-react";
-// import useFavorites from '../functions/GetFavorites.js';
+import useFavorites from '../functions/GetFavorites.js';
 import $ from "jquery";
 
 export default function CocktailWrapper() {
@@ -11,6 +11,7 @@ export default function CocktailWrapper() {
     const { user, isAuthenticated } = useAuth0();
     // const { sub } = user
     const { getAccessTokenSilently } = useAuth0();
+
 
     useEffect(() => {
 

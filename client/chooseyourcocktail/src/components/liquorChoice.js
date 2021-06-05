@@ -5,6 +5,7 @@ import $ from "jquery";
 import CocktailList from './cocktaillist';
 import Pagination from './pagination';
 import { Context } from '../functions/contexStore.js'
+import userFavorites from "../functions/GetFavorites"
 
 
 
@@ -134,11 +135,13 @@ export default function LiquorChoice(props) {
 
 
     useEffect(() => {
+
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
             .then(res =>
                 res.json())
             .then(
                 (result) => {
+
                     setIsLoaded(true);
                     console.log(result)
                     dispatch({ type: 'SET_DRINKS', payload: result.drinks })

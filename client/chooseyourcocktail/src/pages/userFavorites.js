@@ -4,7 +4,8 @@
 import { React, useState, useEffect, useContext } from 'react'
 import { Container, Card, Modal, Button } from 'react-bootstrap';
 import DrinkRecipe from "../components/DrinkRecipe"
-import BookMark from "../components/BookMark"
+import BookmarkDisplay from "../components/displayBookmark"
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Loading from '../components/loading';
 import { Context } from '../functions/contexStore.js'
@@ -70,13 +71,13 @@ const UserFavorites = () => {
 
         for (let i = 0; i < drinks.length; i++) {
             for (let j = 0; j < drinksArray.length; j++) {
-                console.log("drinksArray: " + drinksArray[j].idDrink);
-                console.log("comparison : " + (drinksArray[j].idDrink === drinks[i].toString()))
-                console.log("user favorite: " + drinks[i].toString());
+                // console.log("drinksArray: " + drinksArray[j].idDrink);
+                // console.log("comparison : " + (drinksArray[j].idDrink === drinks[i].toString()))
+                // console.log("user favorite: " + drinks[i].toString());
                 // console.log(drinksArray[i].idDrink === drinks[i].favorite_id.toString())
                 if (drinksArray[j].idDrink === drinks[i].toString()) {
                     favoriteArray.push(drinksArray[j])
-                    console.log("favoritesArray: " + favoriteArray[0]);
+                    // console.log("favoritesArray: " + favoriteArray[0]);
                 }
             }
         }
@@ -96,7 +97,7 @@ const UserFavorites = () => {
                     // this code maps over the drinks props and creates a card with a button for each cocktail
                     favoriteArray.map((result) => (
                         <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3 m-3">
-                            <Card.Header className="container-fluid"><BookMark key={result.idDrink} id={result.idDrink} /></Card.Header>
+                            <Card.Header className="container-fluid"><BookmarkDisplay key={result.idDrink} id={result.idDrink} /></Card.Header>
 
 
                             <Card.Img variant="top" className="mt-1" src={result.strDrinkThumb} />

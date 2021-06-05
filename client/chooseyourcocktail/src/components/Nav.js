@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Link, useHistory } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { ReactComponent as Logo } from '../images/cycLogo.svg';
 import AuthenticationButton from "./authentication-button.js";
+import FavoritesButton from "./FavoritesButton.js";
+
 import SignupButton from './signup-button.js';
 import ProfileButton from './profileButton.js'
 import { useAuth0 } from "@auth0/auth0-react";
@@ -45,6 +47,7 @@ class NavBarHome extends Component {
                             <NavDropdown.Item href="/choose">Choose your cocktail </NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">What's New</NavDropdown.Item>
                             <NavDropdown.Item href="/profile">User Profile</NavDropdown.Item>
+                            <FavoritesButton />
 
 
 
