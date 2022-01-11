@@ -136,7 +136,7 @@ export default function LiquorChoice(props) {
 
     useEffect(() => {
 
-        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
+        fetch("https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic")
             .then(res =>
                 res.json())
             .then(

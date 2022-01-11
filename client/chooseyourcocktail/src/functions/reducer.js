@@ -10,6 +10,16 @@ const Reducer = (state, action) => {
                 ...state,
                 Favorites: action.payload
             };
+            case 'ADD_FAVORITE':
+                return {
+                    ...state,
+                    Favorites: state.Favorites.concat(action.payload)
+                };
+                // case 'DELETE_FAVORITE':
+                // return {
+                //     ...state,
+                //     Favorites:
+                // };
         default:
             return state;
     }

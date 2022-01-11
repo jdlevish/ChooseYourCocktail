@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Pagination = ({ drinksPerPage, totalDrinks, paginate }) => {
     const pageNumbers = [];
 
@@ -15,6 +16,7 @@ const Pagination = ({ drinksPerPage, totalDrinks, paginate }) => {
     }
 
     return (
+        <div className='container'>
         <nav className='pt-0'>
             <ul className='pagination'>
                 {pageNumbers.map(number => (
@@ -26,6 +28,7 @@ const Pagination = ({ drinksPerPage, totalDrinks, paginate }) => {
                 ))}
             </ul>
         </nav>
+        </div>
     );
 };
 

@@ -17,6 +17,7 @@ const checkFavorite = (favorites, id) => {
 
 }
 
+
 export default function BookmarkDisplay(props) {
     const { isAuthenticated } = useAuth0();
 
@@ -24,7 +25,7 @@ export default function BookmarkDisplay(props) {
     console.log(state.Favorites)
     // const [favorites, setFavorites] = useState("")
 
-    return isAuthenticated ? checkFavorite(state.Favorites, props.id) ? <FullBookmark key={props.key} id={props.id} /> : <Bookmark key={props.key} id={props.id} /> : <Bookmark key={props.key} id={props.id} />
+    return isAuthenticated ? checkFavorite(state.Favorites, props.id) ? <FullBookmark key={props.key} id={props.id} isFave={true} /> : <Bookmark key={props.key} id={props.id} isFave={false} /> : <Bookmark key={props.key} id={props.id} isFave={false} />
 
 
 

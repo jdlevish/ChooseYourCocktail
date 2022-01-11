@@ -3,7 +3,7 @@ import { Context } from './contexStore.js'
 import $ from "jquery";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const userFavorites = async () => {
+const UserFavorites = async () => {
     const [state, dispatch] = useContext(Context)
     const { user } = useAuth0();
     const { sub } = user
@@ -35,5 +35,5 @@ const userFavorites = async () => {
 
 
 }
-export default userFavorites;
+export default UserFavorites;
 

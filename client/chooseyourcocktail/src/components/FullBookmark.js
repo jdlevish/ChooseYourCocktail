@@ -1,19 +1,25 @@
 
-import { React, useState } from 'react'
+import { React, useState, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Context } from '../functions/contexStore.js'
 import $ from "jquery";
 import { useAuth0 } from "@auth0/auth0-react";
-
-import BookmarkIcon from '@material-ui/icons/Bookmark';
+import BookMark from './BookMark.js';
+// import BookmarkIcon from '@material-ui/icons/Bookmark';
 // import { faBookmark } from '@fortawesome/free-regular-svg-icons'
-// import { fasBookmark } from '@fortawesome/free-solid-svg-icons '
+import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function FullBookMark(props) {
 
     const { getAccessTokenSilently } = useAuth0();
-    const [favorite, setFavorite] = useState("");
+    const [favorite, setFavorite] = useState(true);
+    const [state, dispatch] = useContext(Context)
     console.log(props)
+    function setNewFavorites(id){
+        
+        setFavorite(!favorite)
+    };
     async function sendFavorite(id) {
         console.log(id)
 
@@ -35,8 +41,8 @@ export default function FullBookMark(props) {
 
     }
     return (
-        <div>
-            <BookmarkIcon className="float-left p-0" size="2x" style={{ color: "#AC1010", fontSize: 32, padding: 0 }} onClick={() => { sendFavorite(props.id) }} />
-        </div>
+        
+         favorite?   <FontAwesomeIcon icon={faBookmark} size="2x" color="#AC1010" onClick={() => { sendFavorite(props.id).then(setNewFavorites(props.id)) }} />:<BookMark></BookMark>
+        
     )
 };
