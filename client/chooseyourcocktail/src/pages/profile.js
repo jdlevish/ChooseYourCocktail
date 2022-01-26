@@ -22,12 +22,12 @@ const Profile = () => {
                 <div className="col-md text-center text-md-left">
                     <h2>{name}</h2>
                     <p className="lead text-muted">{email}</p>
-                    <p className="lead text-muted">{sub}</p>
+                    {/* <p className="lead text-muted">{sub}</p> */}
                 </div>
             </div>
             <div className="row">
                 <pre className="col-12 text-light bg-dark p-4">
-                    {JSON.stringify(user, null, 2)}
+                    {/* {JSON.stringify(user, null, 2)} */}
                 </pre>
             </div>
         </div>

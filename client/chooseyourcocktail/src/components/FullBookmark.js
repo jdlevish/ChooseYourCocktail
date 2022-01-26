@@ -17,7 +17,7 @@ export default function FullBookMark(props) {
     const [state, dispatch] = useContext(Context)
     console.log(props)
     function setNewFavorites(id){
-        
+        // dispatch({ type: 'DELETE_FAVORITE', payload:id })
         setFavorite(!favorite)
     };
     async function sendFavorite(id) {
@@ -33,7 +33,9 @@ export default function FullBookMark(props) {
                     Authorization: `Bearer ${token}`,
                 }
             })
+            await dispatch({ type: 'DELETE_FAVORITE', payload:id })
         }
+        
         catch (error) {
             console.log(error);
         }

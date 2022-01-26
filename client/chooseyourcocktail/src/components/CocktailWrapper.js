@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import useFavorites from '../functions/GetFavorites.js';
 import $ from "jquery";
 
+
 export default function CocktailWrapper() {
     const [state, dispatch] = useContext(Context);
     const [isLoaded, setIsLoaded] = useState(true);
@@ -14,8 +15,10 @@ export default function CocktailWrapper() {
 
 
     useEffect(() => {
+        const APIKEY = process.env.REACT_APP_DRINK_DB
+        console.log(APIKEY)
 
-        fetch("https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic")
+        fetch("https://www.thecocktaildb.com/api/json/v2/"+APIKEY+"/filter.php?a=Alcoholic")
             .then(res => res.json())
             .then(
                 (result) => {

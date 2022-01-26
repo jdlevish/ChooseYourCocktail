@@ -15,11 +15,16 @@ const Reducer = (state, action) => {
                     ...state,
                     Favorites: state.Favorites.concat(action.payload)
                 };
-                // case 'DELETE_FAVORITE':
-                // return {
-                //     ...state,
-                //     Favorites:
-                // };
+                case 'DELETE_FAVORITE':
+                    const Fave = state.Favorites
+                    const index = state.Favorites.indexOf(action.payload)
+                    if(index > -1){
+                      Fave.splice(index, 1)
+                    }
+                return {
+                    ...state,
+                    Favorites: Fave
+                };
         default:
             return state;
     }

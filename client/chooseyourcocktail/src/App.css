@@ -111,6 +111,12 @@ height: 60vh;
 .page-link > .active > a{
   /* border: solid 1px #AC1010 !Important; */
 }
+.pagination{
+  display: flex;
+  flex-wrap: wrap;
+  width: 60vw;
+  justify-content: center;
+}
 /* basics pages */
 /* .basicsImage{
   height:40vh;

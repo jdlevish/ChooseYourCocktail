@@ -42,7 +42,7 @@ const UserFavorites = () => {
     const drinksArray = state.Drinks;
 
 
-
+console.log(state)
 
 
     // gets full recipe

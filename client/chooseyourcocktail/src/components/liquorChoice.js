@@ -27,6 +27,8 @@ export default function LiquorChoice(props) {
     const [currentPage, setCurrentPage] = useState(1);
     const [drinksPerPage] = useState(9);
 
+    const APIKEY = process.env.REACT_APP_DRINK_DB
+
 
 
     // Get current posts
@@ -136,7 +138,7 @@ export default function LiquorChoice(props) {
 
     useEffect(() => {
 
-        fetch("https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic")
+        fetch("https://www.thecocktaildb.com/api/json/v2/"+APIKEY+"/filter.php?a=Alcoholic")
             .then(res =>
                 res.json())
             .then(
@@ -187,9 +189,13 @@ export default function LiquorChoice(props) {
                     <Row>
 
                         <CocktailList drinks={currentdrinks} loading={loading} />
+                        </Row>
+                        <Row>
+                            <Container>
                         <Pagination paginate={paginate} drinksPerPage={drinksPerPage} totalDrinks={drinks.length} />
-
-                    </Row>
+                        </Container>+
+                        </Row>
+                    
 
                 </Container>
 

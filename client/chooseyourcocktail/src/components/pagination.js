@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 
 const Pagination = ({ drinksPerPage, totalDrinks, paginate }) => {
@@ -16,8 +17,9 @@ const Pagination = ({ drinksPerPage, totalDrinks, paginate }) => {
     }
 
     return (
-        <div className='container'>
-        <nav className='pt-0'>
+        <div className='container  row'>
+            <Container>
+        <nav className='pt-0  '>
             <ul className='pagination'>
                 {pageNumbers.map(number => (
                     <li key={number} className='page-item'>
@@ -28,6 +30,7 @@ const Pagination = ({ drinksPerPage, totalDrinks, paginate }) => {
                 ))}
             </ul>
         </nav>
+        </Container>
         </div>
     );
 };
