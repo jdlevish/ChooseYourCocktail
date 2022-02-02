@@ -171,9 +171,9 @@ export default function LiquorChoice(props) {
             <div>
                 <Container >
 
-                    <form className="pt-5" >
-                        <input type="text" name="liquor" value={liquorValue} onKeyPress={(e) => handleKeyPress(e, liquorValue, searchType)} onChange={(e) => { setLiquorValue(e.target.value) }} />
-                        <select className="Cocktails" value={searchType} onChange={(e) => { setSearchType(e.target.value) }}>
+                    <form className="pt-5 choice" >
+                        <input type="text" name="liquor" className="mr-1" value={liquorValue} onKeyPress={(e) => handleKeyPress(e, liquorValue, searchType)} onChange={(e) => { setLiquorValue(e.target.value) }} />
+                        <select className="Cocktails"  className="mr-1" value={searchType} onChange={(e) => { setSearchType(e.target.value) }}>
                             <option value="Liquor">Liquor</option>
                             <option value="Ingredient">Ingredient</option>
                             <option value="Cocktail">Cocktail</option>
@@ -186,14 +186,14 @@ export default function LiquorChoice(props) {
 
                 </Container>
                 <Container>
-                    <Row>
+                   
 
-                        <CocktailList drinks={currentdrinks} loading={loading} />
-                        </Row>
+                        <CocktailList  drinks={currentdrinks} loading={loading} />
+                        
                         <Row>
-                            <Container>
+                            
                         <Pagination paginate={paginate} drinksPerPage={drinksPerPage} totalDrinks={drinks.length} />
-                        </Container>+
+                     
                         </Row>
                     
 

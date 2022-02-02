@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 //Boostrap
-import { Container, Card, Modal, Button } from 'react-bootstrap';
+import { Container, Card, Modal, Button, Row } from 'react-bootstrap';
 import $ from "jquery";
 import DrinkRecipe from "./DrinkRecipe"
 import BookMark from "./BookMark"
@@ -70,7 +70,8 @@ export default function CocktailList(props) {
     }
 
     return (
-        <div>
+        <Row >
+            <Container  >
 
 
 
@@ -80,7 +81,8 @@ export default function CocktailList(props) {
 
                 // this code maps over the drinks props and creates a card with a button for each cocktail
                 props.drinks.map((result) => (
-                    <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3 m-3">
+                    <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3  card-spacing
+                    ">
                         <Card.Header className="container-fluid"><BookmarkDisplay key={result.idDrink} id={result.idDrink} /></Card.Header>
 
 
@@ -107,7 +109,7 @@ export default function CocktailList(props) {
                             </Modal>
 
 
-                            <Button className="shadow-sm" variant="secondary" onClick={() => getRecipe(result.idDrink).then(handleShow)} >Click here for full recipe</Button>
+                            <Button className="shadow-sm text-align-center" variant="secondary" onClick={() => getRecipe(result.idDrink).then(handleShow)} >Click here for full recipe</Button>
 
                         </Card.Body>
                     </Card>
@@ -117,8 +119,8 @@ export default function CocktailList(props) {
             }
 
 
-
-        </div >
+</Container>
+        </Row>
     );
 }
 

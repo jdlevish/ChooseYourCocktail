@@ -96,7 +96,7 @@ console.log(state)
                 {
                     // this code maps over the drinks props and creates a card with a button for each cocktail
                     favoriteArray.map((result) => (
-                        <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3 m-3">
+                        <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3 card-spacing">
                             <Card.Header className="container-fluid"><BookmarkDisplay key={result.idDrink} id={result.idDrink} /></Card.Header>
 
 

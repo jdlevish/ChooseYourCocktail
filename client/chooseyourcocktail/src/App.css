@@ -57,6 +57,11 @@ body{
   height: 10vh;
   font-size: 1.3rem;
 }
+.card-spacing{
+  margin-left:4.3vw;
+  margin-bottom:2.2vh;
+  margin-top:2.2vh;
+}
 /* landing page classes */
 .landingHeading{
   color:#AC1010;
@@ -114,9 +119,20 @@ height: 60vh;
 .pagination{
   display: flex;
   flex-wrap: wrap;
-  width: 60vw;
+  margin-left:2vw;
   justify-content: center;
 }
+.choice{
+  margin-left:4.3vw;
+}
+@media (max-width: 576px) { 
+  .card-spacing{
+    margin-left:0;
+    margin-bottom:2.2vh;
+    margin-top:2.2vh;
+    margin-right:0;
+  }
+ }
 /* basics pages */
 /* .basicsImage{
   height:40vh;
