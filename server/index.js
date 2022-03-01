@@ -173,7 +173,7 @@ app.get("/api/cocktailAPI/:liqour", function (req, res) {
 
     axios({
         "method": "GET",
-        "url": `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=` + liquor,
+        "url": `https://www.thecocktaildb.com/api/json/v2/` + DRINK_DB + `/filter.php?i=` + liquor,
 
 
     })
@@ -192,7 +192,7 @@ app.get("/api/cocktailAPI/Cocktail/:id", function (req, res) {
     console.log(req)
     axios({
         "method": "GET",
-        "url": `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + id,
+        "url": `https://www.thecocktaildb.com/api/json/v2/` + DRINK_DB + `/search.php?s=` + id,
 
 
     })
@@ -209,7 +209,7 @@ app.get("/AllCocktails", function (req, res) {
 
     axios({
         "method": "GET",
-        "url": `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail`,
+        "url": `https://www.thecocktaildb.com/api/json/v2/` + DRINK_DB + `/filter.php?c=Cocktail`,
 
 
     })
@@ -230,7 +230,7 @@ app.get("/api/cocktailAPI/recipe/:id", function (req, res) {
 
     axios({
         "method": "GET",
-        "url": `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=` + id,
+        "url": `https://www.thecocktaildb.com/api/json/v2/` + DRINK_DB + `/lookup.php?i=` + id,
 
 
     })

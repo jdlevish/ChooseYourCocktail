@@ -14,7 +14,7 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons'
 
 export default function BookMark(props) {
   
-    
+    const { isAuthenticated } = useAuth0();
     const { getAccessTokenSilently } = useAuth0();
     const [favorite, setFavorite] = useState(true);
     const [state, dispatch] = useContext(Context)
@@ -47,7 +47,7 @@ export default function BookMark(props) {
     }
     return (
         
-        favorite?    <FontAwesomeIcon icon={faBookmark} size='2x' color="#AC1010" onClick={() => { sendFavorite(props.id).then(setNewFavorites(props.id))}} />:<FullBookMark></FullBookMark>
+        isAuthenticated? favorite?    <FontAwesomeIcon icon={faBookmark} size='2x' color="#AC1010" onClick={() => { sendFavorite(props.id).then(setNewFavorites(props.id))}} />:<FullBookMark></FullBookMark>:<FontAwesomeIcon icon={faBookmark} size='2x' color="#AC1010"  />
       
     )
 }
