@@ -1,83 +1,95 @@
-
-
 /* google font imports */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
-body{
+body {
   font-family: 'Playfair Display', serif;
 
 }
-.Cocktails{
-  font-family:'Oswald', sans-serif;
+
+.Cocktails {
+  font-family: 'Oswald', sans-serif;
 }
+
 .App {
   text-align: center;
 }
 
-.disp{
-  display:none;
+.disp {
+  display: none;
 }
+
 /* nav bar */
-.color-navbar{
+.color-navbar {
   font-family: 'Playfair Display', serif;
   font-size: 4vh;
   color: #AC1010;
 
-  
+
 }
 
-.buttonText{
+.buttonText {
   float: right;
   padding-top: 1vh;
-  font-size:2.5vh;
+  font-size: 2.5vh;
 
 }
-.svgLogo{
+
+.svgLogo {
   padding-top: 2vh;
   padding-bottom: 0vh;
-  height:9.5vh;
+  height: 9.5vh;
 }
-.navHeader{
-  margin-left:auto;
-  }
-  /* cocktaillist cards */
-.thumb{
-  height:50vh;
-  width:30vw;
+
+.navHeader {
+  margin-left: auto;
 }
-.btn-danger{
-  background-color:#AC1010 ;
+
+/* cocktaillist cards */
+.thumb {
+  height: 50vh;
+  width: 30vw;
 }
-.card-header{
-  border-bottom:none;
-  background-color:white;
+
+.btn-danger {
+  background-color: #AC1010;
 }
-.card-Title{
+
+.card-header {
+  border-bottom: none;
+  background-color: white;
+}
+
+.card-Title {
   height: 10vh;
   font-size: 1.3rem;
 }
-.card-spacing{
-  margin-left:4.3vw;
-  margin-bottom:2.2vh;
-  margin-top:2.2vh;
+
+.card-spacing {
+  margin-left: 4.3vw;
+  margin-bottom: 2.2vh;
+  margin-top: 2.2vh;
 }
+
 /* landing page classes */
-.landingHeading{
-  color:#AC1010;
+.landingHeading {
+  color: #AC1010;
   font-family: 'Oswald', sans-serif;
-  font-size:10vh;
-  padding-top:6vh;
- text-align:center;
+  font-size: 10vh;
+  padding-top: 6vh;
+  text-align: center;
 }
-.landingImage{
-  
-height: 60vh;
+
+.landingImage {
+
+  height: 50vh;
 }
-.landingText{
-  padding-left:1.5vw;
-  font-size: 3.3vh;
-  color:black;
+
+.landingText {
+
+  padding-left: 1.5vw;
+  font-size: 2.4vh;
+  color: black;
   text-align: left;
 }
 
@@ -103,59 +115,69 @@ height: 60vh;
 .App-link {
   color: #61dafb;
 }
-.page-link{
-  color:#AC1010!important;
+
+.page-link {
+  color: #AC1010 !important;
   /* border: 1px solid grey */
-  
-}
-.page-link:hover{
-  color:#da1d1d;
-  border:none;
 
 }
-.page-link > .active > a{
+
+.page-link:hover {
+  color: #da1d1d;
+  border: none;
+
+}
+
+.page-link>.active>a {
   /* border: solid 1px #AC1010 !Important; */
 }
-.pagination{
+
+.pagination {
   display: flex;
   flex-wrap: wrap;
-  margin-left:2vw;
+  margin-left: 2vw;
   justify-content: center;
 }
-.choice{
-  margin-left:4.3vw;
+
+.choice {
+  margin-left: 4.3vw;
 }
-@media (max-width: 576px) { 
-  .card-spacing{
-    margin-left:0;
-    margin-bottom:2.2vh;
-    margin-top:2.2vh;
-    margin-right:0;
+
+@media (max-width: 576px) {
+  .card-spacing {
+    margin-left: 0;
+    margin-bottom: 2.2vh;
+    margin-top: 2.2vh;
+    margin-right: 0;
   }
- }
+}
+
 /* basics pages */
 /* .basicsImage{
   height:40vh;
   width:auto;
  
 } */
-.basicsText{
-  color:#AC1010;
+.basicsText {
+  color: #AC1010;
   font-family: 'Oswald', sans-serif;
   font-size: 5vh;
   padding-right: 5px;
-  padding-left:15px;
-  
-  
+  padding-left: 15px;
+
+
 }
-.card > a{
+
+.card>a {
   text-decoration: none;
 }
+
 /* favorites page */
-.favoriteHeader{
+.favoriteHeader {
   text-align: center;
 }
-.userImage{
+
+.userImage {
   border-radius: 50%;
 }
 
@@ -163,6 +185,7 @@ height: 60vh;
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -10,7 +10,7 @@ export default function CocktailWrapper() {
     const [isLoaded, setIsLoaded] = useState(true);
     const [error, setError] = useState("");
     const { user, isAuthenticated } = useAuth0();
-    // const { sub } = user
+   
     const { getAccessTokenSilently } = useAuth0();
 
 
@@ -27,9 +27,7 @@ export default function CocktailWrapper() {
                     dispatch({ type: 'SET_DRINKS', payload: result.drinks })
 
                 },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
+               
                 (error) => {
                     setIsLoaded(true);
                     setError(error);

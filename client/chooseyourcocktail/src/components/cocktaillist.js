@@ -1,9 +1,10 @@
-import React, { Component, useState } from 'react';
+import React, {  useState } from 'react';
+import { useSpring, animated } from 'react-spring'
 //Boostrap
 import { Container, Card, Modal, Button, Row } from 'react-bootstrap';
 import $ from "jquery";
 import DrinkRecipe from "./DrinkRecipe"
-import BookMark from "./BookMark"
+
 import Loading from './loading';
 import BookmarkDisplay from './displayBookmark';
 
@@ -19,6 +20,7 @@ export default function CocktailList(props) {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const styles = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } })
 
 
 
@@ -27,7 +29,7 @@ export default function CocktailList(props) {
 
 
 
-    // console.log(props.drinks)
+   
 
     // recipe call this function takes the id of the cocktail the user selected and sends it to the backend to search database for full recipe
     async function getRecipe(id) {
@@ -70,9 +72,10 @@ export default function CocktailList(props) {
     }
 
     return (
+        <animated.div style={styles}>
         <Row >
             <Container  >
-
+            
 
 
 
@@ -81,12 +84,15 @@ export default function CocktailList(props) {
 
                 // this code maps over the drinks props and creates a card with a button for each cocktail
                 props.drinks.map((result) => (
-                    <Card key={result.idDrink} id={result.idDrink} className="shadow float-left col-md-3  card-spacing
+                    
+                    <Card key={result.idDrink} id={result.idDrink}  className="shadow float-left col-md-3  card-spacing
                     ">
+                        
                         <Card.Header className="container-fluid"><BookmarkDisplay key={result.idDrink} id={result.idDrink} /></Card.Header>
 
-
-                        <Card.Img variant="top" className="mt-1" src={result.strDrinkThumb} />
+                        
+                        <Card.Img variant="top" className="mt-1"  src={result.strDrinkThumb} />
+                        
                         <Card.Body>
 
 
@@ -102,7 +108,7 @@ export default function CocktailList(props) {
                                     {/* <Card.Img variant="top" className="mt-1" src={recipe.strDrinkThumb} /> */}
                                     <DrinkRecipe recipe={recipe} />
 
-                                    <Button variant="danger" onClick={handleClose}>
+                                    <Button variant="danger"   onClick={handleClose}>
                                         Close</Button>
                                 </Modal.Body>
 
@@ -112,8 +118,10 @@ export default function CocktailList(props) {
                             <Button className="shadow-sm text-align-center" variant="secondary" onClick={() => getRecipe(result.idDrink).then(handleShow)} >Click here for full recipe</Button>
 
                         </Card.Body>
+                       
                     </Card>
-
+                  
+                    
 
                 ))
             }
@@ -121,6 +129,7 @@ export default function CocktailList(props) {
 
 </Container>
         </Row>
+        </animated.div>
     );
 }
 

@@ -171,7 +171,7 @@ export default function LiquorChoice(props) {
         return (
             <div>
                 <Container className='pt-2' >
-                <UserGuide />
+                
                     <form className="pt-5 choice" >
                         <input type="text" name="liquor" className="mr-1" value={liquorValue} onKeyPress={(e) => handleKeyPress(e, liquorValue, searchType)} onChange={(e) => { setLiquorValue(e.target.value) }} />
                         <select className="Cocktails"  className="mr-1" value={searchType} onChange={(e) => { setSearchType(e.target.value) }}>

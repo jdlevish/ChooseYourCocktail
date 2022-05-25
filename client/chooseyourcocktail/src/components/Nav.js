@@ -28,8 +28,8 @@ class NavBarHome extends Component {
         return (
             <div className="">
                 <Navbar bg="light" expand="lg" >
-                    <Navbar.Brand href="/choose" ><Logo className="svgLogo"></Logo><h4 className="navHeader float-right pt-4
-                    ">Choose Your Cocktail</h4></Navbar.Brand>
+                    <Navbar.Brand href="/choose" ><h2 className="navHeader float-right pt-4
+                    ">Choose Your Cocktail</h2></Navbar.Brand>
                     {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav"> */}
                     <Nav className="ml-auto color-navbar ">
@@ -41,17 +41,17 @@ class NavBarHome extends Component {
 
 
 
-                        <NavDropdown title="Get Started" id="basic-nav-dropdown" className="float-left">
+                        {/* <NavDropdown title="Get Started" id="basic-nav-dropdown" className="float-left"> */}
 
-                            <NavDropdown.Item href="/Basics">Learn the Basics</NavDropdown.Item>
-                            <NavDropdown.Item href="/choose">Choose your cocktail </NavDropdown.Item>
+                            {/* <NavDropdown.Item href="/Basics">Learn the Basics</NavDropdown.Item>
+                            <NavDropdown.Item href="/choose">Cocketail search </NavDropdown.Item> */}
                             {/* <NavDropdown.Item href="#action/3.3">What's New</NavDropdown.Item> */}
                             {/* <NavDropdown.Item href="/profile">User Profile</NavDropdown.Item> */}
-                            <FavoritesButton />
+                            {/* <FavoritesButton /> */}
 
 
 
-                        </NavDropdown>
+                        {/* </NavDropdown> */}
                     </Nav>
                     <FavoritesButton />
                     <AuthenticationButton />
