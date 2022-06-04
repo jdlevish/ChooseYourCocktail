@@ -21,7 +21,7 @@ export default function CocktailList(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const styles = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } })
-
+    console.log("props.drinks "+props.drinks)
 
 
 
@@ -61,7 +61,7 @@ export default function CocktailList(props) {
 
 
 
-    else if (props.drinks.length === 0 || props.drinks == null) {
+    else if (props.drinks.length === 0 || props.drinks === null|| props.drinks === "None Foun") {
         return (
 
             < div >

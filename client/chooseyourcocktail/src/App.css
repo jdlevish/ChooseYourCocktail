@@ -93,6 +93,11 @@ body {
   text-align: left;
 }
 
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 
 
 @media (prefers-reduced-motion: no-preference) {
@@ -129,7 +134,7 @@ body {
 }
 
 .page-link>.active>a {
-  /* border: solid 1px #AC1010 !Important; */
+  border: solid 1px #AC1010 !Important;
 }
 
 .pagination {
@@ -141,6 +146,10 @@ body {
 
 .choice {
   margin-left: 4.3vw;
+}
+
+.page-item>.active>a {
+  border: solid 1px #AC1010 !Important;
 }
 
 @media (max-width: 576px) {

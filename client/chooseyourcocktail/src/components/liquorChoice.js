@@ -23,7 +23,6 @@ export default function LiquorChoice(props) {
 
 
     // start pagination code
-    // const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [drinksPerPage] = useState(9);
@@ -31,14 +30,31 @@ export default function LiquorChoice(props) {
     const APIKEY = process.env.REACT_APP_DRINK_DB
 
 
-
-    // Get current posts
+// start pagination code
+    const totalDrinks = drinks.length;
     const indexOfLastDrink = currentPage * drinksPerPage;
     const indexOfFirstDrink = indexOfLastDrink - drinksPerPage;
     const currentdrinks = drinks.slice(indexOfFirstDrink, indexOfLastDrink);
+    const pageNumbers = [];
+    
+    // console.log("in pagination component "+visibleRange)
+   
+   
+       for (let i = 1; i <= Math.ceil(totalDrinks / drinksPerPage); i++) {
+           pageNumbers.push(i);
+       }
+    const visibleRange = [];
+
+    for(let i = currentPage-1; i<=currentPage+1; i++){
+        if(i>0 && i<=pageNumbers.length){
+        visibleRange.push(i);
+    }
+}
+    console.log("pageNumbers " +pageNumbers.length)
+    console.log(visibleRange);
 
     // Change page
-    const paginate = pageNumber => setCurrentPage(pageNumber);
+    const paginate = pageNumber => setCurrentPage( pageNumber);
 
     // end pagination code
 
@@ -196,7 +212,7 @@ export default function LiquorChoice(props) {
                         
                         <Row>
                             
-                        <Pagination paginate={paginate} drinksPerPage={drinksPerPage} totalDrinks={drinks.length} />
+                        <Pagination currentPage={currentPage} paginate={paginate} drinksPerPage={drinksPerPage} totalDrinks={drinks.length} visibleRange={visibleRange} pageNumbers={pageNumbers}/>
                      
                         </Row>
                     
