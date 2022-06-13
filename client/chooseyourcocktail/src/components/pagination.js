@@ -6,6 +6,37 @@ const Pagination = ({ currentPage, drinksPerPage, totalDrinks, paginate , visibl
 
    
 console.log(currentPage)
+if (totalDrinks < 9) {
+    return (
+        <div>
+
+        </div>
+    )
+}
+if (pageNumbers.length < 1) {
+    return(
+        <div></div>
+    )
+} 
+
+if(pageNumbers.length ==3){
+    return ( <div className='container  row'>
+    <Container>
+<nav className='pt-0  '>
+    <ul className='pagination'>
+    {visibleRange.map(number => (
+        <li key={number} className='page-item'>
+            <a onClick={() => paginate(number)} href='#' className='page-link'>
+                {number}
+            </a>
+        </li>
+      
+    ))}
+    </ul>
+    </nav>
+    </Container>
+    </div>)
+}
 if (currentPage === 1 ){
 
     return ( <div className='container  row'>
@@ -52,11 +83,7 @@ if (currentPage <= 2 ){
                   previous
                 </a>
             </li>
-            {/* <li key={pageNumbers[0]} className='pagination-control'>
-                <a onClick={() => paginate(pageNumbers[0])} href='#' className='page-link'>
-                 {pageNumbers[0]}
-                </a>
-            </li> */}
+           
           
         {visibleRange.map(number => (
             <li key={number} className='page-item'>
@@ -92,12 +119,12 @@ if (currentPage === 3 ){
     <Container>
 <nav className='pt-0  '>
     <ul className='pagination'>
-    <li key={currentPage-1} className='pagination-control'>
+    <li key={currentPage*5} className='pagination-control'>
                 <a onClick={() => paginate(currentPage-1)} href='#' className='page-link'>
                   previous
                 </a>
             </li>
-            <li key={pageNumbers[0]} className='pagination-control'>
+            <li key={currentPage*4} className='pagination-control'>
                 <a onClick={() => paginate(pageNumbers[0])} href='#' className='page-link'>
                  {pageNumbers[0]}
                 </a>
@@ -116,12 +143,12 @@ if (currentPage === 3 ){
                   ...
                 </a>
             </li>
-            <li key={pageNumbers[pageNumbers.length-1]} className='pagination-control'>
+            <li key={currentPage*3} className='pagination-control'>
                 <a onClick={() => paginate(pageNumbers[pageNumbers.length-1])} href='#' className='page-link'>
                  {pageNumbers[pageNumbers.length-1]}
                 </a>
             </li>
-          <li key={currentPage} className='pagination-control'>
+          <li key={currentPage*2} className='pagination-control'>
             <a onClick={() => paginate(currentPage+1)} href='#' className='page-link'>
              next
             </a>
@@ -132,24 +159,13 @@ if (currentPage === 3 ){
 </div>)
 
 }
-    if (totalDrinks < 9) {
-        return (
-            <div>
 
-            </div>
-        )
-    }
-    if (pageNumbers.length < 1) {
-        return(
-            <div></div>
-        )
-    } 
     if(currentPage+1 >= pageNumbers.length){
         return ( <div className='container  row'>
         <Container>
     <nav className='pt-0  '>
         <ul className='pagination'>
-        <li key={currentPage-1} className='pagination-control'>
+        <li key={currentPage*2} className='pagination-control'>
                     <a onClick={() => paginate(currentPage-1)} href='#' className='page-link'>
                       previous
                     </a>
@@ -179,12 +195,12 @@ if (currentPage === 3 ){
         <Container>
     <nav className='pt-0  '>
         <ul className='pagination'>
-        <li key={currentPage-1} className='pagination-control'>
+        <li key={currentPage*2} className='pagination-control'>
                     <a onClick={() => paginate(currentPage-1)} href='#' className='page-link'>
                       previous
                     </a>
                 </li>
-                <li key={pageNumbers[0]} className='pagination-control'>
+                <li key={currentPage*3} className='pagination-control'>
                 <a onClick={() => paginate(pageNumbers[0])} href='#' className='page-link'>
                  {pageNumbers[0]}
                 </a>
@@ -222,35 +238,7 @@ if (currentPage === 3 ){
     </Container>
     </div>)
     } 
-    // if (pageNumbers.length <= 5 && currentPage+3 < pageNumbers.length ) {
-    //     return ( <div className='container  row'>
-    //     <Container>
-    // <nav className='pt-0  '>
-    //     <ul className='pagination'>
-    //     <li key={currentPage-1} className='pagination-control'>
-    //                 <a onClick={() => paginate(currentPage-1)} href='#' className='page-link'>
-    //                   previous
-    //                 </a>
-    //             </li>
-    //         {pageNumbers.map(number => (
-    //             <li key={number} className='page-item'>
-    //                 <a onClick={() => paginate(number)} href='#' className='page-link'>
-    //                     {number}
-    //                 </a>
-    //             </li>
-              
-    //         ))}
-    //           <li key={currentPage} className='pagination-control'>
-    //             <a onClick={() => paginate(currentPage+1)} href='#' className='page-link'>
-    //              next
-    //             </a>
-    //         </li>
-    //     </ul>
-    // </nav>
-    // </Container>
-    // </div>)
-    // }
-
+   
     
 
 
@@ -260,7 +248,7 @@ if (currentPage === 3 ){
             <Container>
         <nav className='pt-0  '>
             <ul className='pagination'>
-            <li key={currentPage-1} className='pagination-control'>
+            <li key={currentPage*2} className='pagination-control'>
                         <a onClick={() => paginate(currentPage-1)} href='#' className='page-link'>
                           previous
                         </a>
@@ -273,7 +261,7 @@ if (currentPage === 3 ){
                     </li>  
                   
                 ))}
-                  <li key={currentPage+1} className='pagination-control'>
+                  <li key={currentPage*3} className='pagination-control'>
                     <a onClick={() => paginate(currentPage+1)} href='#' className='page-link'>
                      next
                     </a>
