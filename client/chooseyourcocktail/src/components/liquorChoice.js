@@ -1,12 +1,11 @@
-import React, { Component, useState, useEffect, useContext } from 'react';
+import React, {  useState, useEffect, useContext } from 'react';
 //Boostrap
 import { Container, Row, Button } from 'react-bootstrap';
 import $ from "jquery";
 import CocktailList from './cocktaillist';
 import Pagination from './pagination';
 import { Context } from '../functions/contexStore.js'
-import userFavorites from "../functions/GetFavorites"
-import UserGuide from './userGuide';
+
 
 
 
@@ -36,10 +35,6 @@ export default function LiquorChoice(props) {
     const indexOfFirstDrink = indexOfLastDrink - drinksPerPage;
     const currentdrinks = drinks.slice(indexOfFirstDrink, indexOfLastDrink);
     const pageNumbers = [];
-    
-    // console.log("in pagination component "+visibleRange)
-   
-   
        for (let i = 1; i <= Math.ceil(totalDrinks / drinksPerPage); i++) {
            pageNumbers.push(i);
        }
@@ -50,8 +45,6 @@ export default function LiquorChoice(props) {
         visibleRange.push(i);
     }
 }
-    console.log("pageNumbers " +pageNumbers.length)
-    console.log(visibleRange);
 
     // Change page
     const paginate = pageNumber => setCurrentPage( pageNumber);
@@ -60,7 +53,6 @@ export default function LiquorChoice(props) {
 
     // this function makes an api call to the express server to search cocktaildb api by liquor type
     async function search(liquorValue, searchType) {
-        console.log(liquorValue, searchType)
         if (searchType === 'Liquor') {
             try {
                 setLoading(true);
@@ -72,7 +64,6 @@ export default function LiquorChoice(props) {
 
                 await setDrinks(res)
                 setLoading(false);
-                // console.log(drinks)
             } catch (e) { console.log(e) }
 
 
@@ -86,10 +77,10 @@ export default function LiquorChoice(props) {
                     method: "GET"
 
                 })
-                // console.log(res)
+                
                 await setDrinks(res)
                 setLoading(false)
-                // console.log(drinks)
+                
             } catch (e) { console.log(e) }
 
 
@@ -102,18 +93,9 @@ export default function LiquorChoice(props) {
                 const res = await $.ajax({
                     url: "/api/cocktailAPI/Cocktail/" + liquorValue.toLowerCase(),
                     method: "GET"
-
                 })
-                // console.log("response : " + res)
-                // let resArray = []
-                // resArray.push(res);
-                // console.log("response :" + res[0])
-
-
-
                 await setDrinks(res)
                 setLoading(false);
-                // console.log(drinks)
             } catch (e) { console.log(e) }
 
 
@@ -127,10 +109,8 @@ export default function LiquorChoice(props) {
     // this function checks the keys pressed when input field is in focus and calls searchLiquor function when enter is pressed
     function handleKeyPress(e, liquorValue, searchType) {
         console.log(e.key)
-        // console.log(liquorValue)
         if (e.key === 'Enter') {
             e.preventDefault()
-            console.log(liquorValue)
             liquorValue = liquorValue
             search(liquorValue, searchType)
         }
@@ -162,13 +142,9 @@ export default function LiquorChoice(props) {
                 (result) => {
 
                     setIsLoaded(true);
-                    console.log(result)
                     dispatch({ type: 'SET_DRINKS', payload: result.drinks })
                     setDrinks(result.drinks);
                 },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
                 (error) => {
                     setIsLoaded(true);
                     setError(error);

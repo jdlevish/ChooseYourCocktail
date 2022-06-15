@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container, Image, Button } from 'react-bootstrap';
+import { Container, Image} from 'react-bootstrap';
 import cocktail from '../images/cychome.png'
 
 export default function Landing(props) {
-    console.log(props)
+    
     return (
         <div>
             <Container>

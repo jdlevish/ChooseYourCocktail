@@ -1,6 +1,3 @@
-
-
-
 import { React, useState, useEffect, useContext } from 'react'
 import { Container, Card, Modal, Button } from 'react-bootstrap';
 import DrinkRecipe from "../components/DrinkRecipe"
@@ -42,7 +39,7 @@ const UserFavorites = () => {
     const drinksArray = state.Drinks;
 
 
-console.log(state)
+
 
 
     // gets full recipe

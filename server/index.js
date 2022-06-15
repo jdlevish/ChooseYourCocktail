@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const path = require('path');
+// const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 var jwt = require('express-jwt');
@@ -9,7 +9,8 @@ const { checkJwt } = require('./auth/check-Jwt');
 const { readSync } = require('fs');
 require('dotenv').config()
 
-
+const path = __dirname + '/views/';
+app.use(express.static(path));
 mongoose.promise = global.Promise;
 
 
@@ -20,7 +21,6 @@ const Favorite = mongoose.model('Favorites');
 // mongo connection 
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.set('debug', true);
-
 
 
 
@@ -100,35 +100,6 @@ app.post("/api/favorites/:id", checkJwt, (req, res) => {
         )
 
 
-        // Favorite.find({
-        //     user_id: user
-        // }).then((data) => {
-
-
-
-        //     console.log(data[0]._id);
-        //     let id = data[0]._id
-        //     Favorite.findOneAndUpdate(
-        //         { _id: id },
-        //         {
-        //             $push: {
-        //                 favorite_id: cocktailId
-        //             }
-        //         }, function (error, success) {
-
-        //             if (error) {
-
-        //                 console.log(error);
-
-        //             } else {
-
-        //                 console.log(success);
-
-        //             }
-
-        //         });
-
-        // res.json(data);
 
 
     })
@@ -136,15 +107,7 @@ app.post("/api/favorites/:id", checkJwt, (req, res) => {
 
 
 
-        // var newFavorite = new Favorite({
-        //     user_id: user,
-        //     favorite_id: cocktailId
-        // });
-        // console.log(newFavorite)
-        // newFavorite.save(function (err, doc) {
-        //     if (err) return console.error(err);
-        //     console.log("Document inserted succussfully!");
-        // });
+
         +
 
         res.status(204).end();
@@ -205,7 +168,7 @@ app.get("/api/cocktailAPI/Cocktail/:id", function (req, res) {
 })
 
 // route for all cocktails 
-app.get("/AllCocktails", function (req, res) {
+app.get("AllCocktails", function (req, res) {
 
     axios({
         "method": "GET",
@@ -240,6 +203,13 @@ app.get("/api/cocktailAPI/recipe/:id", function (req, res) {
             res.send(api.data.drinks[0])
         })
 
+})
+
+app.get('/', (req, res) => {
+    res.sendFile(path + 'index.html');
+})
+app.get('/*', (req, res) => {
+    res.sendFile(path + 'index.html');
 })
 
 app.listen(8080, () => console.log(' listening on port 8080!'));

@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-
-//components
+import React from "react";
 import LiquorChoice from "../components/liquorChoice";
 
 

@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-//Boostrap
-import { BrowserRouter as Router, Link, useHistory } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import { ReactComponent as Logo } from '../images/cycLogo.svg';
+import { Navbar, Nav } from 'react-bootstrap';
 import AuthenticationButton from "./authentication-button.js";
 import FavoritesButton from "./FavoritesButton.js";
 
-import SignupButton from './signup-button.js';
-import ProfileButton from './profileButton.js'
-import { useAuth0 } from "@auth0/auth0-react";
+
 
 
 

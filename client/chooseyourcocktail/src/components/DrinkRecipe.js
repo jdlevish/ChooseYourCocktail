@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Container, Card, Row, Navbar, Nav, Image, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import React from "react";
+
 
 
 export default function DrinkRecipe({ recipe }) {
@@ -13,7 +13,6 @@ export default function DrinkRecipe({ recipe }) {
     for (var key of Object.keys(recipe)) {
         if (key.includes("strIngredient")) {
             if (recipe[key] != null) {
-                // ingredients.push(recipe.key)
                 ingredients.push(recipe[key])
             }
         }
