@@ -10,7 +10,11 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
 
   <BrowserRouter>
-    <Auth0ProviderWithHistory>
+    <Auth0ProviderWithHistory domain={process.env.REACT_APP_AUTH0_DOMAIN}
+    client_id={process.env.REACT_APP_AUTH0_CLIENT_ID}
+    audience={process.env.REACT_APP_AUTH0_AUDIENCE}
+    
+    >
       <App />
     </Auth0ProviderWithHistory>
   </BrowserRouter>

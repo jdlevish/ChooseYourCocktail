@@ -1,5 +1,5 @@
 import React, {  useState, useEffect, useContext } from 'react';
-//Boostrap
+import { useAuth0 } from "@auth0/auth0-react";
 import { Container, Row, Button } from 'react-bootstrap';
 import $ from "jquery";
 import CocktailList from './cocktaillist';

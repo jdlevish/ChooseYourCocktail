@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { useAuth0 } from "@auth0/auth0-react";
 import AuthenticationButton from "./authentication-button.js";
 import FavoritesButton from "./FavoritesButton.js";
 

@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Home from './pages/home'
 import Nav from './components/Nav'
 import Choose from './pages/choose'
+import Cov from './pages/cov'
 import Basics from './pages/theBasics'
 import Liquor from './components/liquor'
 import ingredients from './pages/ingredients'
@@ -49,6 +50,9 @@ function App() {
         </Route>
         <Route path='/choose' >
           <Choose />
+        </Route>
+        <Route path='/cov'>
+          <Cov/>
         </Route>
         <Route path='/Basics/ingredients' >
           <ingredients />
