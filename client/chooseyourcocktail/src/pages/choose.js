@@ -1,10 +1,14 @@
 import React from "react";
 import LiquorChoice from "../components/liquorChoice";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
-class choose extends React.Component {
-    render() {
+
+
+export default function Choose() {
+  
+    const { getAccessTokenSilently } = useAuth0();
         return (
             <div >
 
@@ -14,5 +18,4 @@ class choose extends React.Component {
             </div>
         );
     }
-}
-export default choose;
+

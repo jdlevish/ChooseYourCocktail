@@ -19,6 +19,7 @@ export default function LiquorChoice(props) {
     const [searchType, setSearchType] = useState("Liquor");
     const [isLoaded, setIsLoaded] = useState(true);
     const [error, setError] = useState("");
+    const { getAccessTokenSilently } = useAuth0();
 
 
     // start pagination code
