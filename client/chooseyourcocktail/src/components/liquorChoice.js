@@ -175,6 +175,7 @@ export default function LiquorChoice(props) {
                         <Button className="btn btn-danger" onClick={(e) => { handleSubmit(e, liquorValue, searchType) }}>Search</Button>
                     </form>
                     
+                    
 
      
 
@@ -182,6 +183,9 @@ export default function LiquorChoice(props) {
 
                 </Container>
                 <Container>
+                <p className='pt-3 pb-3 topText'>
+                        If you are a logged in user , click on the bookmark icon at the top left of the cocktail card to add that cocktail to your favorites
+                    </p>
                    
 
                         <CocktailList  drinks={currentdrinks} loading={loading} />

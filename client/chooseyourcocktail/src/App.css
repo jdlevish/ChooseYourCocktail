@@ -177,6 +177,10 @@ body {
 
 }
 
+.topText {
+  text-align: center;
+}
+
 .card>a {
   text-decoration: none;
 }
