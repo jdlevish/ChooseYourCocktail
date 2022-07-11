@@ -11,15 +11,11 @@ import FavoritesButton from "./FavoritesButton.js";
 
 
 
-class NavBarHome extends Component {
-    constructor(props) {
-        super(props);
-
-
-    }
-
-    render() {
-
+const NavBarHome = (props) => {
+    const { isAuthenticated } = useAuth0();
+    
+   
+       
 
         return (
             <div className="">
@@ -39,6 +35,5 @@ class NavBarHome extends Component {
         );
     }
 
-}
 
 export default NavBarHome;
