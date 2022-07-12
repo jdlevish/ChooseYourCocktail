@@ -27,7 +27,7 @@ const NavBarHome = (props) => {
 
                     </Nav>
                     <FavoritesButton />
-                    <AuthenticationButton />
+                    <AuthenticationButton  isAuthenticated={isAuthenticated}/>
 
                  
                 </Navbar>

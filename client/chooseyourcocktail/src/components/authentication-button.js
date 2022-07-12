@@ -7,9 +7,9 @@ import SignupButton from "./signup-button";
 import { useAuth0, getAccessTokenSilently } from "@auth0/auth0-react";
 
 
-const AuthenticationButton = () => {
-    const { isAuthenticated } = useAuth0();
-
+const AuthenticationButton = (props) => {
+    const isAuthenticated= props.isAuthenticated;
+console.log(isAuthenticated);
     return isAuthenticated ? <span className="buttonText"><LogoutButton /></span> : <div><span className="buttonText">
         <LoginButton />
 
