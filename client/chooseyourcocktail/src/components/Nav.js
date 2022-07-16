@@ -17,7 +17,22 @@ const NavBarHome = (props) => {
    
        
 
-        return (
+        return isAuthenticated ? (
+            <div className="">
+                <Navbar bg="light" expand="lg" >
+                    <Navbar.Brand href="/chooseAuth" ><h2 className="navHeader float-right pt-4
+                    ">Choose Your Cocktail</h2></Navbar.Brand>
+                    
+                    <Nav className="ml-auto color-navbar ">
+
+                    </Nav>
+                    <FavoritesButton />
+                    <AuthenticationButton  isAuthenticated={isAuthenticated}/>
+
+                 
+                </Navbar>
+            </div >
+        ):(
             <div className="">
                 <Navbar bg="light" expand="lg" >
                     <Navbar.Brand href="/choose" ><h2 className="navHeader float-right pt-4
@@ -32,7 +47,7 @@ const NavBarHome = (props) => {
                  
                 </Navbar>
             </div >
-        );
+        )
     }
 
 

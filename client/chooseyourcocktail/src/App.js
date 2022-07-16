@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Home from './pages/home'
 import Nav from './components/Nav'
 import Choose from './pages/choose'
+import ChooseAuth from './pages/chooseAuth'
 import Cov from './pages/cov'
 import Basics from './pages/theBasics'
 import Liquor from './components/liquor'
@@ -63,6 +64,9 @@ function App() {
         <Route path='/Basics'>
           <Basics />
         </Route>
+        <ProtectedRoute path='/chooseAuth'>
+          <ChooseAuth />
+        </ProtectedRoute>
 
         <ProtectedRoute path='/Profile'>
           <Profile />
